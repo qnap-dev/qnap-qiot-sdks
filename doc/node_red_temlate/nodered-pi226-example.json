@@ -1,0 +1,188 @@
+[{
+	"id": "d66242d0.176228",
+	"type": "mongodb",
+	"z": "98f41682.992f48",
+	"hostname": "10.0.3.4",
+	"port": "32769",
+	"db": "IoT",
+	"name": "IoTCollection"
+}, {
+   "id": "7dd87df6.3bb274",
+   "type": "mqtt-broker",
+   "z": "98f41682.992f48",
+   "broker": "10.0.3.9",
+   "port": "1883",
+   "clientid": "",
+   "usetls": false,
+   "verifyservercert": true,
+   "compatmode": true,
+   "keepalive": "0",
+   "cleansession": true,
+   "willTopic": "",
+   "willQos": "0",
+   "willRetain": null,
+   "willPayload": "",
+   "birthTopic": "",
+   "birthQos": "0",
+   "birthRetain": null,
+   "birthPayload": ""
+}, {
+   "id": "40ee6c10.f53f94",
+   "type": "mqtt in",
+   "z": "98f41682.992f48",
+   "name": "PI226",
+   "topic": "PI226",
+   "broker": "7dd87df6.3bb274",
+   "x": 191,
+   "y": 402,
+   "wires": [
+   	    ["c5a8abc9.6ad86", "76be5dde.9bf88c", "4dd01303.2e68f4", "dcd3ff94.bd3d88"]
+	    ]
+}, {
+   "id": "c5a8abc9.6ad86",
+   "type": "debug",
+   "z": "98f41682.992f48",
+   "name": "",
+   "active": false,
+   "console": "false",
+   "complete": "payload",
+   "x": 502,
+   "y": 269.5,
+   "wires": []
+}, {
+   "id": "7c08cd88.d62a1c",
+   "type": "catch",
+   "z": "98f41682.992f48",
+   "name": "catchError",
+   "scope": ["c349e7.0e0cce18"],
+   "x": 200,
+   "y": 49,
+   "wires": [
+   	    ["1de6a3b0.91e034"]
+	    ]
+}, {
+   "id": "1de6a3b0.91e034",
+   "type": "mongodb out",
+   "z": "98f41682.992f48",
+   "mongodb": "d66242d0.176228",
+   "name": "ErrorLogCollection",
+   "collection": "errorlogs",
+   "payonly": true,
+   "upsert": false,
+   "multi": false,
+   "operation": "store",
+   "x": 495,
+   "y": 49.5,
+   "wires": []
+}, {
+   "id": "e439ccaa.168198",
+   "type": "status",
+   "z": "98f41682.992f48",
+   "name": "",
+   "scope": null,
+   "x": 199,
+   "y": 116,
+   "wires": [
+   	    ["ae8e4896.6cf13"]
+	    ]
+}, {
+   "id": "ae8e4896.6cf13",
+   "type": "mongodb out",
+   "z": "98f41682.992f48",
+   "mongodb": "d66242d0.176228",
+   "name": "StatusLogsCollection",
+   "collection": "statuslogs",
+   "payonly": true,
+   "upsert": false,
+   "multi": false,
+   "operation": "store",
+   "x": 505,
+   "y": 115,
+   "wires": []
+}, {
+   "id": "76be5dde.9bf88c",
+   "type": "mongodb out",
+   "z": "98f41682.992f48",
+   "mongodb": "d66242d0.176228",
+   "name": "PI226 Collection",
+   "collection": "PI226",
+   "payonly": true,
+   "upsert": false,
+   "multi": false,
+   "operation": "store",
+   "x": 510,
+   "y": 356,
+   "wires": []
+}, {
+   "id": "4dd01303.2e68f4",
+   "type": "function",
+   "z": "98f41682.992f48",
+   "name": "FilterData",
+   "func": "var result=JSON.parse(msg.payload);\n//return msg.payload;\n//node.log(result);\nif(result.light>100)\n{\n result.alarm='on'; \n}\nelse\n{\n  result.alarm='off';     \n}\nmsg.payload=result;\nreturn msg;",
+   "outputs": 1,
+   "noerr": 0,
+   "x": 500,
+   "y": 433,
+   "wires": [
+   	    ["c90fac2f.af3b78", "fb54eb7f.9d968"]
+	    ]
+}, {
+   "id": "c90fac2f.af3b78",
+   "type": "mqtt out",
+   "z": "98f41682.992f48",
+   "name": "ReturnToPI226",
+   "topic": "PI226returns",
+   "qos": "0",
+   "retain": "true",
+   "broker": "7dd87df6.3bb274",
+   "x": 827,
+   "y": 336.5,
+   "wires": []
+}, {
+   "id": "fb54eb7f.9d968",
+   "type": "debug",
+   "z": "98f41682.992f48",
+   "name": "",
+   "active": true,
+   "console": "false",
+   "complete": "payload",
+   "x": 812,
+   "y": 432.5,
+   "wires": []
+}, {
+   "id": "1b3da036.14bc4",
+   "type": "mqtt out",
+   "z": "98f41682.992f48",
+   "name": "ReturnToPI226W2M",
+   "topic": "PI226returnsW2M",
+   "qos": "0",
+   "retain": "true",
+   "broker": "7dd87df6.3bb274",
+   "x": 870,
+   "y": 532.5,
+   "wires": []
+}, {
+   "id": "dcd3ff94.bd3d88",
+   "type": "function",
+   "z": "98f41682.992f48",
+   "name": "W2M Rest Protocol Data",
+   "func": "var result=JSON.parse(msg.payload);\n//return msg.payload;\n//node.log(result);\nif(result.light>100)\n{\n result.alarm='on'; \n}\nelse\n{\n  result.alarm='off';     \n}\nmsg.payload=result;\nreturn msg;",
+   "outputs": 1,
+   "noerr": 0,
+   "x": 547,
+   "y": 533.5,
+   "wires": [
+   	    ["1b3da036.14bc4", "5f5b9e16.2f1b48"]
+	    ]
+}, {
+   "id": "5f5b9e16.2f1b48",
+   "type": "debug",
+   "z": "98f41682.992f48",
+   "name": "",
+   "active": true,
+   "console": "false",
+   "complete": "true",
+   "x": 816,
+   "y": 620.5,
+   "wires": []
+}]

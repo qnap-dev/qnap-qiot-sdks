@@ -1,0 +1,7 @@
+//development
+{
+  "protocol": "mqtt",
+  "nasip": "192.169.0.124",
+  "port": "1883"
+}
+
