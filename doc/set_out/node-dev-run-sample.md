@@ -77,6 +77,13 @@ MQTT Example
 
 - The sample application will send messages to your QIoT container, and please make a good use of mqtt client [MQTT.fx](http://mqttfx.jfx4ee.org/index.php/download) utility will display the messages as your QIoT container receives them.
 
+# See more
+- Sometimes, for better experiences, GUI is more attractive than just coding. Of course, we provide an experimental dashboard to manage and control your devices with no code required.
+
+**Device Dashboard**
+![Picture](../media/node-mqtt-dash-example.png)
+
+
 # Experimenting with various transport protocols
 The same sample can be used to test MQTT, HTTP and CoAP. In order to change the transport, uncomment whichever you want to evaluate in the `require` calls on top of the sample code and pass it to the call to Client.fromConnectionString() when creating the client.
 
