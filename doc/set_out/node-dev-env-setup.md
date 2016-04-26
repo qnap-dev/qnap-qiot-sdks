@@ -3,7 +3,7 @@
 This document describes how to prepare your development environment to use the *QNAP QIoT container for Node.js*.
 
 - [Setup your development environment](#devenv)
-- [Sample applications](#readme)
+- [Sample applications](#samplecode)
 
 <a name="devenv"/>
 ## Setup your development environment

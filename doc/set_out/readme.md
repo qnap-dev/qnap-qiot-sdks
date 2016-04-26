@@ -1,4 +1,4 @@
-This folder contains documents that provide "getting started" instructions for using the IoT device SDKs to create QIoT device client applications to run on various platforms and operating systems.
+This folder contains documents that provide "getting started" instructions for using the QIoT device SDKs to create QIoT device client applications to run on various platforms and operating systems.
 
 Each document describes:
 

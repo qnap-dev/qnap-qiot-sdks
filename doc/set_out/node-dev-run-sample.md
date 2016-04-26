@@ -38,7 +38,7 @@ You should have the following items ready before beginning the process:
 ## Take Raspberry Pi Series for example
 -   Make sure desktop is ready as per instructions given on [Prepare your development environment][lnk-setup-devbox].
 
-In order to run the Node.js sample properly, before your first try, please, go inside your [examples/raspberry](node/device/examples/raspberry) application folder and type
+In order to run the Node.js sample properly, before your first try, please, go inside your [examples/raspberry](../../node/device/examples/raspberry) application folder and type
 ```bash
 $ npm install node-grovepi mqtt
 ```
@@ -78,9 +78,9 @@ MQTT Example
 - The sample application will send messages to your QIoT container, and please make a good use of mqtt client [MQTT.fx](http://mqttfx.jfx4ee.org/index.php/download) utility will display the messages as your QIoT container receives them.
 
 # See more
-- Sometimes, for better experiences, GUI is more attractive than just coding. Of course, we provide an experimental dashboard to manage and control your devices with no code required.
+- Sometimes, for better experiences, GUI is more attractive than just coding. Of course, we provide an experimental dashboard to monitor and manage your devices with no code required.
 
-**[Device Dashboard](../../node/device/examples/mqtt_temperaturesensor_and_LED_dash_sample.js)**
+**[Device dashboard example](../../node/device/examples/mqtt_temperaturesensor_and_LED_dash_sample.js)**
 ![Picture](../media/node-mqtt-dash-example.png)
 
 
