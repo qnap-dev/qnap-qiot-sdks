@@ -66,13 +66,13 @@ MQTT Example
 - Give a proper pub/sub topic name that you are interested:
 
     ```
-    var client = mqtt.connect('mqtt://[your_ip_or_dns]:[your_port]');
+    var publishTopic = '[your_topic]';
+    var SubscribeTopic = '[your_topic]';
     ```
 - Open a new shell or Node.js command prompt and navigate to the folder where you placed the sample files. Run the sample application using the following commands:
 
     ```
-    var publishTopic = '[your_topic]';
-    var SubscribeTopic = '[your_topic]';
+    node mqtt_temperaturesensor_and_LED_simple_sample.js
     ```
 
 - The sample application will send messages to your QIoT container, and please make a good use of mqtt client [MQTT.fx](http://mqttfx.jfx4ee.org/index.php/download) utility will display the messages as your QIoT container receives them.
