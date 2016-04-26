@@ -80,7 +80,7 @@ MQTT Example
 # See more
 - Sometimes, for better experiences, GUI is more attractive than just coding. Of course, we provide an experimental dashboard to manage and control your devices with no code required.
 
-**Device Dashboard**
+**[Device Dashboard](../../node/device/examples/mqtt_temperaturesensor_and_LED_dash_sample.js)**
 ![Picture](../media/node-mqtt-dash-example.png)
 
 
