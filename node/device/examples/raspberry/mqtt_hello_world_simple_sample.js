@@ -12,15 +12,14 @@ var DHTDigitalSensor = GrovePi.sensors.DHTDigital;
 var LightAnalogSensor = GrovePi.sensors.LightAnalog;
 var TemperatureSensor = GrovePi.sensors.TemperatureAnalog;
 var LedSense = GrovePi.sensors.LedBarDigital;
-var client  = mqtt.connect('mqtt://172.17.29.186:1234');
+var client  = mqtt.connect('mqtt://192.168.0.124:32792');
 
 
 function start(){
-    console.log('starting')
     board = new Board({
     debug: true,
     onError: function(err) {
-      console.log('Something wrong just happened')
+      console.log('Something wrong just happened.')
       console.log(err)
     },
     onInit: function(res) {
@@ -38,15 +37,7 @@ function start(){
               
           })
 	  digitalSensor.watch();
-
-	    var redLed = new LedSense(7);
-	    var greenLed = new LedSense(8);
-	    var blueLed = new LedSense(4);
-
-	    redLed.write(0);
-	    greenLed.write(0);
-	    blueLed.write(1);
-	    
+	  	
 	  client.on('connect', function () {
 	      client.subscribe('PI226returns');
 	  });
@@ -54,45 +45,20 @@ function start(){
 	  client.on('message', function (topic, message) {
 
 	      console.log('Received:' + message.toString());
-
-	      if(JSON.parse(message.toString()).alarm=='off'){
-		 
-		  greenLed.write(1);
-		  redLed.write(0);
-	      }
-	      else{
-		 
-		  greenLed.write(0);
-		  redLed.write(1);
-		  
-	      }
 	  });
       }
-
+    }})
 	
-    }
-    })
-    
-
-
     board.init();
 }
 
 
 function onExit(err) {
 
-    
-    var redLed = new LedSense(7);
-    var greenLed = new LedSense(8);
-    var blueLed = new LedSense(4);
-
     console.log('ending')
-    redLed.write(0);
-    greenLed.write(0);
-    blueLed.write(0);
-    board.close()
+    board.close();
     process.removeAllListeners()
-    process.exit()
+    process.exit();
     if (typeof err != 'undefined')
 	console.log(err)
 }
