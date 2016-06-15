@@ -67,7 +67,7 @@ board = new Board({
                     console.log({'The degree is ': res});
 
                     // Publish data to MQTT topic is "PI226"
-                    client.publish(publishTopic, JSON.stringify({'Temp': res}));
+                    client.publish(publishTopic, JSON.stringify({'Temp': res}),{retain:true});
                 
 				}
 			});
@@ -80,7 +80,7 @@ board = new Board({
 			
 			 // Get MQTT data topic is "PI226returns"
              client.on('message', function (topic, message) {
-				 // Define tempsersor data and LED display 
+				 // Define temperaturesensor data and LED display
                  if (message.toString() == 'off') {
                      greenLed.write(1);
                      redLed.write(0);

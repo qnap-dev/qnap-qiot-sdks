@@ -1,8 +1,6 @@
 var GrovePi = require('node-grovepi').GrovePi
 var Commands = GrovePi.commands
 var Board = GrovePi.board
-var mqtt    = require('mqtt')
-
 
 
 var AccelerationI2cSensor = GrovePi.sensors.AccelerationI2C;
@@ -12,7 +10,6 @@ var DHTDigitalSensor = GrovePi.sensors.DHTDigital;
 var LightAnalogSensor = GrovePi.sensors.LightAnalog;
 var TemperatureSensor = GrovePi.sensors.TemperatureAnalog;
 var LedSense = GrovePi.sensors.LedBarDigital;
-var client  = mqtt.connect('mqtt://192.168.0.124:32792');
 
 
 function start(){
@@ -31,21 +28,10 @@ function start(){
 	      if (res!=''){
 
 		  console.log('Sent:'+JSON.stringify({'temperature':res[0],'humidity':res[1],'heatindex':res[2]}));
-		  client.publish('PI226', JSON.stringify({'temperature':res[0],'humidity':res[1],'heatindex':res[2]}));
-
 	      }
               
           })
 	  digitalSensor.watch();
-	  	
-	  client.on('connect', function () {
-	      client.subscribe('PI226returns');
-	  });
-
-	  client.on('message', function (topic, message) {
-
-	      console.log('Received:' + message.toString());
-	  });
       }
     }})
 	

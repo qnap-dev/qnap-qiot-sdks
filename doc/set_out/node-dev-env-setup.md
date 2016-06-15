@@ -2,11 +2,19 @@
 
 This document describes how to prepare your development environment to use the *QNAP QIoT container for Node.js*.
 
-- [Setup your development environment](#devenv)
+Before get prepared on your Node.js environment, you should also make sure your device's operating system is ready.
+ Following the instructions below to see if your vary devices pre-requisites.
+ ## Raspberry
+ - For a beginner, we strongly recommand you start with NOOBs and try to install Raspbian on your Raspberry devices, see [How to Install Raspbian OS via NOOBS Installer][rasp-install-noobs].
+ ##Linkit Smart 7688 DUO
+Coming soon
+
+- [Setup your Node.js environment](#devenv)
 - [Sample applications](#samplecode)
 
+## For all Devices
 <a name="devenv"/>
-## Setup your development environment
+## Setup your Node.js environment
 
 Complete the following steps to set up your development environment:
 - Ensure that Node.js version 4.x or later is installed. Run `node --version` at the command line to check the version. For information about using a package manager to install Node.js on Linux, see [Installing Node.js via package manager][node-linux].
@@ -22,3 +30,4 @@ This repository contains various Node.js sample applications that illustrate how
 
 [node-linux]: https://github.com/nodejs/node/wiki
 [getstarted]: node-dev-run-sample.md
+[rasp-install-noobs]: https://www.raspberrypi.org/downloads/noobs

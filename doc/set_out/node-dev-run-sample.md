@@ -31,7 +31,7 @@ This document describes how to build and run the **mqtt_hello_world_sample.js** 
 You should have the following items ready before beginning the process:
 -   Computer with Git client installed and access to the
     [qnap-qiot-sdks](https://github.com/qnap-dev/qnap-qiot-sdks) GitHub public repository.
--   [Prepare your development environment](https://github.com/qnap-dev/qnap-qiot-sdks/doc/set_outnode-dev-env-setup.md).
+-   [Prepare your development environment](node-dev-env-setup.md).
 
 <a name="PrepareDevice"></a>
 # Step 2: Prepare your Device
@@ -78,7 +78,7 @@ MQTT Example
 - The sample application will send messages to your QIoT container, and please make a good use of mqtt client [MQTT.fx](http://mqttfx.jfx4ee.org/index.php/download) utility will display the messages as your QIoT container receives them.
 
 # See more
-- Sometimes, for better experiences, GUI is more attractive than just coding. Of course, we provide an experimental dashboard to monitor and manage your devices with no code required.
+- Sometimes, for better experiences, GUI is more attractive than just coding. Of course, we provide an experimental dashboard to monitor and manage your devices with no code required.(Coming soon)
 
 **[Device dashboard example](../../node/device/examples/mqtt_temperaturesensor_and_LED_dash_sample.js)**
 ![Picture](../media/node-mqtt-dash-example.png)
