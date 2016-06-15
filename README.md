@@ -18,8 +18,8 @@ Devices and data sources in an IoT solution can range from a simple network-conn
 This repository contains the following QIoT device SDKs:
 
 
-- [QNAP QIoT device SDK for Node.js](node/device/readme.md)
-- [See Node.js Device helloworld Example for Raspberry series](node/device/examples/raspberry/mqtt_hello_world_simple_sample.js)
+- [QNAP QIoT device SDK for Node.js](nodejs/device/readme.md)
+- [See Node.js Device helloworld Example for Raspberry series](nodejs/device/examples/raspberry/mqtt_hello_world_simple_sample.js)
 
 Each language SDK includes sample code and documentation in addition to the library code. The API reference documentation is coming soon.
 
@@ -77,15 +77,15 @@ In addition to the language SDKs, this repository ([qnap-qiot-sdks](https://gith
 
 This folder contains various build scripts to build the libraries.
 
-### /doc
+### /doc(Coming soon)
 
 This folder contains the following documents that are relevant to all the language SDKs:
 
-- [Set up QIoT container(Coming soon)]() describes how to configure your QNAP QIoT container service.
-- [Manage QIoT container(Coming soon)]() describes how to provision devices in your QNAP QIoT container service.
-- [FAQ(Coming soon)]() contains frequently asked questions about the SDKs and libraries.
-- [OS Platforms and hardware compatibility(Coming soon)]() describes the SDK compatibility with different OS platforms as well as specific device configurations.
+- Set up QIoT container describes how to configure your QNAP QIoT container service.
+- [Manage QIoT container describes how to provision devices in your QNAP QIoT container service.
+- FAQ contains frequently asked questions about the SDKs and libraries.
+- OS Platforms and hardware compatibility describes the SDK compatibility with different OS platforms as well as specific device configurations.
 
-### /tools
+### /tools(Coming soon)
 
 This folder contains tools you will find useful when you are working with QIoT container and the device SDKs.

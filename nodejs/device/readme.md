@@ -15,7 +15,7 @@ For more information on how to use this library refer to the documents below:
 - [Setup QIoT Device](../../doc/set_out/node-dev-run-sample.md)
 - [Provision devices](../../doc/set_out/node-dev-run-sample.md)
 - [Run a node.js sample application](../../doc/set_out/node-dev-run-sample.md)
-- [Node API reference](../../doc/notification/404/404.html)
+- Node API reference(Coming soon)
 
 
 ## Directory structure
