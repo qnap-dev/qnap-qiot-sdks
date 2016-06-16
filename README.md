@@ -66,7 +66,7 @@ Here is what you can expect Microsoft Support to be able to help with:
 * **Client SDKs issues**: If you are trying to compile and run the libraries on a supported platform, the Support team will be able to assist with troubleshooting or questions related to compiler issues and communications to and from the QIoT Suite.  They will also try to assist with questions related to porting to an unsupported platform, but will be limited in how much assistance can be provided.  The team will be limited with trouble-shooting the hardware device itself or drivers and or specific properties on that device. 
 * **QIoT container / Connectivity Issues**: Communication from the device client to the QNAP QIoT Suite service and communication from the QNAP QIoT Suite service to the client.  Or any other issues specifically related to the QNAP QIoT Suite.
 * **Portal Issues**: Issues related to the portal, that includes access, security, dashboard, devices, Alarms, Usage, Settings and Actions.
-* **REST/API Issues(Coming soon)**: Using the QIoT Suite REST/APIs that are documented in the [documentation](https://www.qnap.com).
+* **REST/API Issues(Coming soon)**: Using the QIoT Suite REST/APIs that are documented in the documentation.
 
 ## Additional resources
 
