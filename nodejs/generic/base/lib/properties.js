@@ -29,11 +29,11 @@ var Properties = function () {
 /* Code_SRS_NODE_IOTHUB_PROPERTIES_07_003: [The getData function shall return a string representation of the body of the message.] */
 Properties.prototype.add = function (itemKey, itemValue) {
   /* Code_SRS_NODE_IOTHUB_PROPERTIES_07_004: [If itemKey contains any of the reserved key names then the add function will return false] */
-  if (itemKey === 'Authorization' || itemKey === 'iothub-to') {
+  if (itemKey === 'Authorization' || itemKey === 'qiotbus-to') {
     return false;
   }
   else {
-    var objProperty = { key: 'iothub-app-' + itemKey, value: itemValue };
+    var objProperty = { key: 'qiotbus-app-' + itemKey, value: itemValue };
     this.propertyList.push(objProperty);
     return true;
   }
