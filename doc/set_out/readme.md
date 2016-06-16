@@ -7,6 +7,6 @@ Each document describes:
 - How to run the sample application on the device.
 - How to verify that the device is communicating with QNAP QIoT container.
 
-For a list of the currently certified devices, see [OS Platforms and hardware compatibility with device SDKs][lnk-compatibilty]
+For a list of the currently certified devices, see OS Platforms and hardware compatibility with device SDKs
 
 [lnk-compatibilty]: https://www.qnap.com
