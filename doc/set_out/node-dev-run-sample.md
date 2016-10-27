@@ -47,7 +47,7 @@ $ npm install node-grovepi mqtt
 
 MQTT Example
 
-- Get the following sample files from https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/node/device/examples/raspberry
+- Get the following sample files from https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/nodejs/device/examples/raspberry
     - **mqtt_hello_world_sample.js**
     - **mqtt_temperaturesensor_and_LED_simple_sample.js**
 

@@ -30,6 +30,11 @@ QNAP IoT device SDKs can be used with a broad range of OS platforms and devices.
 
 ### For Example
 
+- **Arduino Yún**
+
+![Picture](doc/media/Arduino Yún.jpg)
+
+
 - **Raspberry Pi A/B, Pi 2, Pi 3 Model B**
 
 ![Picture](doc/media/GrovePi_Plus_By_Dexter_Industries_For_the_Raspberry_Pi.JPG)
@@ -49,8 +54,11 @@ Within the repository, you can find various types of simple samples that can hel
 Below is a complete list of all these simple samples.
 In addition to these simple samples, you can find a long list of [getting started guides](doc/set_out) that describe all the steps necessary to run the simple samples on a wide variety of devices and platforms.
 
+- Arduino device SDK:
+   - [DHT 11 Arduino C++ sample](c_c++/device/examples/arduino/yun/QIOT-DHT11-Demo.ino): Gives a tip to connect to QIoT broker service using MQTT protocol with DHT 11 sensor.
+
 - Node.js device SDK:
-   - [Simple Node.js sample](nodejs/device/examples/raspberry/mqtt_temperaturesensor_and_LED_simple_sample.js): Shows how to connect to QIoT Suite and send and receive messages using the MQTT protocol with 1 temperature sensor and 2 LEDs.
+   - [Simple Node.js sample - Raspberry](nodejs/device/examples/raspberry/mqtt_temperaturesensor_and_LED_simple_sample.js): Shows how to connect to QIoT message broker service in both send and receive messages using the MQTT protocol with 1 temperature sensor and 2 LEDs By using Raspberry Pi develop board.
 
 
 ## Contribution, feedback and issues
