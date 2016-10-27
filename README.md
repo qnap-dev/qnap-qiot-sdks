@@ -17,9 +17,11 @@ Devices and data sources in an IoT solution can range from a simple network-conn
 
 This repository contains the following QIoT device SDKs:
 
+- QNAP QIoT device SDK for Arduino
 
 - [QNAP QIoT device SDK for Node.js](nodejs/device/readme.md)
-- [See Node.js Device helloworld Example for Raspberry series](nodejs/device/examples/raspberry/mqtt_hello_world_simple_sample.js)
+
+- [See Raspberry Device "helloworld" Example with Node.js](nodejs/device/examples/raspberry/mqtt_hello_world_simple_sample.js)
 
 Each language SDK includes sample code and documentation in addition to the library code. The API reference documentation is coming soon.
 
