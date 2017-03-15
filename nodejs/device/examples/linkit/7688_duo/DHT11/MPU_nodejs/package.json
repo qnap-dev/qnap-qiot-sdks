@@ -1,0 +1,13 @@
+{
+  "name": "LocalTemperature",
+  "description": "",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+      "socket.io":"latest",
+      "mqtt":"latest",
+      "q":"latest"
+  }
+}
