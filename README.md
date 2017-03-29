@@ -1,13 +1,10 @@
 
 
-# QNAP QIoT container
+# QNAP QIoT Suite Lite 
 
 ![Picture](doc/media/Qnap-Banner.jpg)
 
-This repository contains both QIoT device SDKs and QIoT service SDKs. Device SDKs enable you connect client devices to QNAP QIoT container. Service SDKs enable you to manage your QNAP QIoT container services.
-
-Visit https://www.qnap.com to learn more about developing applications for NAP QIoT container.
-
+This repository contains QIoT device SDKs. We provide sample code for enable connect client devices to QNAP QIoT Suite Lite. 
 
 ## QNAP QIoT device SDKs
 
