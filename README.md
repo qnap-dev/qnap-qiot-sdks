@@ -14,7 +14,7 @@ Devices and data sources in an IoT solution can range from a simple network-conn
 
 This repository contains the following QIoT device SDK sample code:
 
-[QNAP QIoT device SDK for Node.js](nodejs/)
+[QNAP QIoT device SDK sample code for Node.js](nodejs/)
 
 Each language SDK includes sample code and documentation in addition to the library code. 
 The API reference documentation is coming soon.
@@ -46,9 +46,9 @@ In addition to these simple samples, you can find a long list of [getting starte
 
 - Node.js device SDK:
 
-[Raspberry sample code](nodejs/device/intel-edison/examples)
+[Raspberry sample code](nodejs/device/raspberrypi/examples)
 
-[Intel Edison sample code](nodejs/device/raspberrypi/examples)
+[Intel Edison sample code](nodejs/device/intel-edison/examples)
 
 ## Contribution, feedback and issues
 
@@ -71,19 +71,11 @@ Here is what you can expect QNAP Support to be able to help with:
 
 In addition to the language SDKs, this repository ([qnap-qiot-sdks](https://github.com/qnap-dev/qnap-qiot-sdks)) contains the following folders:
 
-### /build
-
-This folder contains various build scripts to build the libraries.
-
 ### /doc
 
 This folder contains the following documents that are relevant to all the language SDKs:
 
--  How to set up your device environment and define your device's sensor then send the data to QIoT container services.
-- (Coming soon) Set up QIoT container describes how to configure your QNAP QIoT container service.
-- (Coming soon) Manage QIoT container describes how to provision devices in your QNAP QIoT container service.
-- FAQ contains frequently asked questions about the SDKs and libraries.
-- (Coming soon) OS Platforms and hardware compatibility describes the SDK compatibility with different OS platforms as well as specific device configurations.
+-  How to set up your device environment and define your device's sensor then send the data to QIoT Suite.
 
 ### /tools(Coming soon)
 
