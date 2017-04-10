@@ -17,9 +17,6 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// TODO:you could replace "temp" by any resource id set form QIoT Suite Lite
-connection.subscribeById("temp");
-
 /** 
  * Receive data of QIoT Suite Lite.
  */
@@ -34,3 +31,9 @@ connection.on('message', function(data) {
             break;
     }
 });
+
+/**
+ * Subscribe data coming from QIoT Suite Lite.
+ */
+// TODO:you could replace "temp" by any resource id set form QIoT Suite Lite
+connection.subscribeById("temp");

@@ -4,6 +4,7 @@
   "description": "",
   "dependencies": {
     "coap": "^0.20.0",
+    "mara": "^0.1.4",
     "mqtt": "^2.5.0"
   },
   "devDependencies": {},
