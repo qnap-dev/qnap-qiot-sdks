@@ -61,12 +61,6 @@ If you are having issues using one of the packages or using the QNAP QIoT Suite 
 
 To engage QNAP support, you can create a support ticket directly from the [QNAP Helpdesk](https://helpdesk.qnap.com/).
 
-Here is what you can expect QNAP Support to be able to help with:
-
-* **QIoT Device SDKs issues**: If you are trying to compile and run the libraries on a supported platform, the Support team will be able to assist with troubleshooting or questions related to compiler issues and communications to and from the QIoT Suite.  They will also try to assist with questions related to porting to an unsupported platform, but will be limited in how much assistance can be provided.  The team will be limited with trouble-shooting the hardware device itself or drivers and or specific properties on that device. 
-
-* **QIoT Container / Connectivity Issues**: Communication from the device client to the QNAP QIoT Suite service and communication from the QNAP QIoT Suite service to the client.  Or any other issues specifically related to the QNAP QIoT Suite.
-
 ## Additional resources
 
 In addition to the language SDKs, this repository ([qnap-qiot-sdks](https://github.com/qnap-dev/qnap-qiot-sdks)) contains the following folders:
