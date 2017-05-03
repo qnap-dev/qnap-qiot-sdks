@@ -35,9 +35,6 @@ QNAP IoT device SDKs can be used with a broad range of OS platforms and devices.
 - **Intel® Edison**
 ![Picture](doc/media/Intel-edison-mini-board.png)
 
-- **LinkIt™ 7688 DUO**
-![Picture](doc/media/Linkit_7688_DUO.jpg)
-
 ## Samples
 
 Within the repository, you can find various types of simple samples that can help you get started.
