@@ -28,6 +28,9 @@ if [ -n "$(getcfg qiot Install_Path -f /etc/config/qpkg.conf -d "")" ]; then
     qpkgpath=$(getcfg qiot Install_Path -f /etc/config/qpkg.conf -d "")
     echo $qpkgpath
     cp -r $qpkgpath/iot/qrule ./qiotdebug
+    cp -r $qpkgpath/iot/cert/qioterror.log ./qiotdebug
+    cp -r $qpkgpath/qiot-umm/logs ./qiotdebug/umm
+    cp -r $qpkgpath/iot/kong ./qiotdebug
 fi
 tar cvf ./qiotdebug.tar ./qiotdebug
 rm -rf ./qiotdebug
