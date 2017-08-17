@@ -1,36 +1,77 @@
 #!/bin/sh
 
-cd /share/Public
-mkdir qiotdebug
-export qiotlog="./qiotdebug/qiotdebug.log"
-echo ' ========== qiot-mongo ========== ' >> $qiotlog
-system-docker logs qiot-mongo >> $qiotlog
-echo ' ========== qiot-webportal ========== ' >> $qiotlog
-system-docker logs qiot-webportal >> $qiotlog
-echo ' ========== qiot-kong ========== ' >> $qiotlog
-system-docker logs qiot-kong >> $qiotlog
-echo ' ========== qiot-dmm ========== ' >> $qiotlog
-system-docker logs qiot-dmm >> $qiotlog
-echo ' ==========  qiot-parse ========== ' >> $qiotlog
-system-docker logs  qiot-parse >> $qiotlog
-echo ' ========== qiot-ponte ========== ' >> $qiotlog
-system-docker logs qiot-ponte >> $qiotlog
-echo ' ========== kong-database ========== ' >> $qiotlog
-system-docker logs kong-database >> $qiotlog
-echo ' ========== qiot-redis ========== ' >> $qiotlog
-system-docker logs qiot-redis >> $qiotlog
-echo ' ========== qiot-node-red ========== ' >> $qiotlog
-system-docker logs qiot-node-red >> $qiotlog
-echo ' ========== qiot-deploy ========== ' >> $qiotlog
-system-docker logs qiot-deploy >> $qiotlog
-
-if [ -n "$(getcfg qiot Install_Path -f /etc/config/qpkg.conf -d "")" ]; then
-    qpkgpath=$(getcfg qiot Install_Path -f /etc/config/qpkg.conf -d "")
-    echo $qpkgpath
-    cp -r $qpkgpath/iot/qrule ./qiotdebug
-    cp -r $qpkgpath/iot/cert/qioterror.log ./qiotdebug
-    cp -r $qpkgpath/qiot-umm/logs ./qiotdebug/umm
-    cp -r $qpkgpath/iot/kong ./qiotdebug
+if [ -z "$(getcfg qiot Install_Path -f /etc/config/qpkg.conf -d "")" ]; then
+    echo "QIoT installed path not found"
+    exit 2
 fi
-tar cvf ./qiotdebug.tar ./qiotdebug
+
+QPKG_PATH=$(getcfg qiot Install_Path -f /etc/config/qpkg.conf -d "")
+echo "QPKG_PATH: ${QPKG_PATH}"
+cd /share/Public
+rm -rf qiotdebug && mkdir qiotdebug
+
+service="qiot-parse"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+cp -r $QPKG_PATH/qiot-umm/logs/* qiotdebug/$service/log/
+
+
+service="qiot-ponte"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+
+service="qiot-kong"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+cp -r $QPKG_PATH/iot/kong/* qiotdebug/$service/log/
+
+service="qiot-node-red"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+cp -r $QPKG_PATH/iot/qrule/log/* qiotdebug/$service/log/
+
+service="qiot-deploy"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+cp -r $QPKG_PATH/qiot-deploy/log/* qiotdebug/$service/log/
+
+service="qiot-dmm"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+cp $QPKG_PATH/iot/cert/*.log qiotdebug/$service/log/
+
+service="qiot-redis"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+cp $QPKG_PATH/iot/redis/*.log qiotdebug/$service/log/
+
+service="kong-database"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+
+service="qiot-mongo"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+
+service="qiot-webportal"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
+
+service="qiot-watchdog"
+echo " ========== $service ========== "
+mkdir -p qiotdebug/$service/log
+cp $QPKG_PATH/install.log qiotdebug/$service/log/
+cp $QPKG_PATH/watchdog.log qiotdebug/$service/log/
+
+tar cvf ./qiotdebug.tar ./qiotdebug > /dev/null
 rm -rf ./qiotdebug
