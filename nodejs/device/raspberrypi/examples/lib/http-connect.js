@@ -1,6 +1,6 @@
 /**
  * Copyright (c) QNAP Systems, Inc. All rights reserved.
-*/
+ */
 
 var http = require('http');
 var fs = require('fs');
@@ -86,6 +86,11 @@ var publishById = function publishById(resource_id, value) {
             req.write(jsonVal);
             console.log(" send message to [http://" + options.hostname + ":" + options.port + options.path + ", value = " + jsonVal);
             req.end();
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
@@ -148,6 +153,11 @@ var subscribeById = function subscribeById(resource_id) {
                 "connection_options": options
             }
             this.subscribeList.push(data);
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
@@ -198,6 +208,10 @@ var getTopicById = function(resource_id) {
         var sensor = this.resourceinfo.resources[i];
         if (resource_id == sensor["resourceid"]) {
             return sensor["topic"];
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }

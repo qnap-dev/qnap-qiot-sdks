@@ -76,6 +76,10 @@ class Coap:
                     print "NOW TOPIC_NAME :" + str(res["topic"]) + " MESSAGE : " + str(value)
                 except Exception, error:
                     print error
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
+
 
     def publish_by_topic(self,topic, value):
         """
@@ -116,7 +120,10 @@ class Coap:
                     print "subscribe error"
                     print error
                     coap_client.observe(path,None)
-
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
+            
     def get_topic_by_id(self, resource_id):
         """
         get topic by resource topic
@@ -127,7 +134,9 @@ class Coap:
         for res in resources:
             if (resource_id == str(res["resourceid"])):
                 return str(res["topic"])
-
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
+                
     def on(self, event_name, callback):
         if self.callbacks is None:
             self.callbacks = {}

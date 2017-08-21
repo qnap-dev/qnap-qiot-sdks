@@ -4,7 +4,8 @@
 
 import json
 import requests
-
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.poolmanager import PoolManager
 class Https:
 
     https_options = None
@@ -45,26 +46,32 @@ class Https:
 
         return https_options
 
-    def set_cacert(self,ca):
+    def set_ca(self,ca):
         https_options['verify'] = ca
-        if (ca == False):
-            requests.packages.urllib3.disable_warnings()
-
     def publish_by_id(self,resource_id, value):
         """
         publish message to QIoT Suite Lite application by resource id.
         :param resource_id : input resource id
         :param value : input message will publish
         """
+        if https_options['verify']==False:
+            print 'Please use "set_ca()" define certificate path' 
+            return
         resources = resource_info['resources']
         for res in resources:
             if (resource_id == str(res["resourceid"])) :
                 try:
+                    requests.packages.urllib3.disable_warnings()
                     url = 'https://' + https_options['host']+':'+str(https_options['port'])+'/resources/'+str(res["topic"])
-                    r = requests.post(url, headers=https_options['headers'], verify=False, data=json.dumps({'value': value}))
+                    s = requests.Session()
+                    s.mount('https://', HostNameIgnoringAdapter())
+                    s.post(url, headers=https_options['headers'], verify= https_options['verify'],data=json.dumps({'value': value}))
                     print "NOW TOPIC_NAME :" + str(res["topic"]) + " MESSAGE : " + str(value)
                 except Exception, error:
                     print error
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def publish_by_topic(self,topic, value):
         """
@@ -72,9 +79,16 @@ class Https:
         :param resource_id : input resource topic
         :param value : input message will publish
         """
+        if https_options['verify']==False:
+            print 'Please use "set_ca()" define certificate path' 
+            return
+        resources = resource_info['resources']
         try:
+            requests.packages.urllib3.disable_warnings()
             url = 'https://' + https_options['host']+':'+str(https_options['port'])+'/resources/'+str(topic)
-            r = requests.post(url, headers=https_options['headers'], verify=False, data=json.dumps({'value': value}))
+            s = requests.Session()
+            s.mount('https://', HostNameIgnoringAdapter())
+            s.post(url, headers=https_options['headers'], verify= https_options['verify'], data=json.dumps({'value': value}))
             print "NOW TOPIC_NAME :" + str(topic) + " MESSAGE : " + str(value)
         except Exception, error:
             print error
@@ -84,22 +98,30 @@ class Https:
         subscribe resource message by resource id
         :param resource_id : input resource id
         """
+        if https_options['verify']==False:
+            print 'Please use "set_ca()" define certificate path' 
+            return
         resources = resource_info['resources']
         for res in resources:
             if (resource_id == str(res["resourceid"])) :
                 try:
+                    requests.packages.urllib3.disable_warnings()
                     url = 'https://' + https_options['host']+':'+str(https_options['port'])+'/resources/'+str(res["topic"])
-                    res = requests.get(url, headers=https_options['headers'], verify=False)
+                    s = requests.Session()
+                    s.mount('https://', HostNameIgnoringAdapter())
+                    res = s.get(url, headers=https_options['headers'], verify= https_options['verify'])
                     if(res.text!=None or res.text!="Not found"):
                         data={
                             'message': res.text,
                             'id':resource_id
                         }
-                        self.trigger("message",data);
-
+                        self.trigger("message",data)
                 except Exception, error:
                     print "subscribe_by_id error="
                     print error
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def get_topic_by_id(self, resource_id):
         """
@@ -111,6 +133,8 @@ class Https:
         for res in resources:
             if (resource_id == str(res["resourceid"])):
                 return str(res["topic"])
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def on(self, event_name, callback):
         if self.callbacks is None:
@@ -125,3 +149,9 @@ class Https:
         if self.callbacks is not None and event_name in self.callbacks:
             for callback in self.callbacks[event_name]:
                 callback(self,data)
+class HostNameIgnoringAdapter(HTTPAdapter):
+    def init_poolmanager(self, connections, maxsize, block=False):
+        self.poolmanager = PoolManager(num_pools=connections,
+                                       maxsize=maxsize,
+                                       block=block,
+                                       assert_hostname=False)

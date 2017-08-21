@@ -11,6 +11,7 @@ var qiot = require('./lib/qiot');
  * Setup connection options
  */
 var connection = new qiot(qiot.protocol.HTTPS);
+connection.setCa("./ssl/mycert.pem");
 var connection_option = connection.readResource('./res/resourceinfo.json');
 
 /**

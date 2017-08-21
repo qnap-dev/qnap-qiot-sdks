@@ -10,6 +10,7 @@ var cp = require('child_process');
 
 var gpioCommand = 'gpio read 7'; // button pin 7
 var value = 0;
+var pre_button_state = 0;
 
 /**
  * Setup connection options
@@ -36,14 +37,17 @@ connection.connect(connection_option);
 connection.on('connect', function(data) {
     // detect button state every 1000 msec and publish when button state change
     setInterval(function() {
-        console.log("senosr read:" + button_sensor.read());
-        if (pre_button_state != button_sensor.read()) {
+        cp.exec(gpioCommand, function(err, stdout, stderr) {
+            value = parseInt(stdout);
+        });
+        console.log("senosr read:" + value);
+        if (pre_button_state != value) {
             // TODO: you could replace "button" by any resource id set form QIoT Suite Lite
-            connection.publishById("button", button_sensor.read());
-            pre_button_state = button_sensor.read();
+            connection.publishById("button", value);
+            pre_button_state = value;
             // or publish by resource topic
-            // TODO: you could replace "qiot/things/admin/edison/button" by any Topic form QIoT Suite Lite like following
-            // connection.publishByTopic("qiot/things/admin/edison/button", getRandomInt(0, 50));
+            // TODO: you could replace "qiot/things/admin/rasberrypi/button" by any Topic form QIoT Suite Lite like following
+            // connection.publishByTopic("qiot/things/admin/rasberrypi/button", getRandomInt(0, 50));
         }
     }, 1000);
 });

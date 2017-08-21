@@ -1,6 +1,6 @@
 /**
  * Copyright (c) QNAP Systems, Inc. All rights reserved.
-*/
+ */
 
 var mqtt = require('mqtt');
 var fs = require('fs');
@@ -143,11 +143,14 @@ var publishById = function publishById(resource_id, value) {
         if (resource_id == sensor["resourceid"]) {
             var jsonVal = JSON.stringify({
                 value: value
-            }, {
-                retain: true
             });
-            this.mqttclient.publish(sensor["topic"], jsonVal);
+            this.mqttclient.publish(sensor["topic"], jsonVal, { retain: true });
             console.log(" send message to [mqtt(s)://" + this.mqttoptions.host + ":" + this.mqttoptions.port + "], topic_Pub = " + sensor["topic"] + ", value = " + jsonVal);
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
@@ -160,10 +163,8 @@ var publishById = function publishById(resource_id, value) {
 var publishByTopic = function publishByTopic(topic, value) {
     var jsonVal = JSON.stringify({
         value: value
-    }, {
-        retain: true
     });
-    this.mqttclient.publish(topic, jsonVal);
+    this.mqttclient.publish(topic, jsonVal, { retain: true });
     console.log(" send message to [mqtt(s)://" + this.mqttoptions.host + ":" + this.mqttoptions.port + "], topic_Pub = " + topic + ", value = " + jsonVal);
 }
 
@@ -185,6 +186,11 @@ var subscribeById = function subscribeById(resource_id) {
         if (resource_id == sensor["resourceid"]) {
             this.mqttclient.subscribe(sensor["topic"]);
             console.log("add subscribe :" + sensor["topic"]);
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
@@ -203,6 +209,10 @@ var getTopicById = function(resource_id) {
         var sensor = this.resourceinfo.resources[i];
         if (resource_id == sensor["resourceid"]) {
             return sensor["topic"];
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }

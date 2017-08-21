@@ -1,12 +1,12 @@
 /**
  * Copyright (c) QNAP Systems, Inc. All rights reserved.
-*/
+ */
 
 var https = require('https');
 var fs = require('fs');
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 var httpsConnect = function httpsConnect() {
     this.httpsoptions = null;
     this.resourceinfo = null;
@@ -16,11 +16,13 @@ var httpsConnect = function httpsConnect() {
     this.publishByTopic = publishByTopic;
     this.subscribeById = subscribeById;
     this.getTopicById = getTopicById;
+    this.caPath = "";
+    this.setCa = setCa;
 
     this.subscribeList = [];
     setInterval(getMessage.bind(this), 1000);
     EventEmitter.call(this);
-}
+};
 util.inherits(httpsConnect, EventEmitter);
 
 /**
@@ -30,8 +32,7 @@ util.inherits(httpsConnect, EventEmitter);
  */
 var readResource = function readResource(jsonfile) {
     var httpsoptions = {
-        method: 'POST',
-        rejectUnauthorized: false,
+        method: 'POST'
     };
 
     // read resourceinfo json file
@@ -48,7 +49,7 @@ var readResource = function readResource(jsonfile) {
     };
     this.httpsoptions = httpsoptions;
     return httpsoptions;
-}
+};
 
 /**
  * publish message to QIoT Suite Lite application by resource id.
@@ -60,7 +61,10 @@ var publishById = function publishById(resource_id, value) {
         console.log("please assign 'this.resourceinfo' a JSON data generate form QIot");
         return;
     }
-
+    if (this.caPath == "") {
+        console.log("please assign ca path by setCa(path)");
+        return;
+    }
     for (var i = 0; i < this.resourceinfo.resources.length; i++) {
         var sensor = this.resourceinfo.resources[i];
         if (resource_id == sensor["resourceid"]) {
@@ -75,8 +79,9 @@ var publishById = function publishById(resource_id, value) {
             options.headers = this.httpsoptions.headers;
             options.path = '/resources/' + sensor["topic"];
             options.method = 'PUT';
-            options.rejectUnauthorized = this.httpsoptions.rejectUnauthorized;
-
+            options.agentOptions = {
+                ca: fs.readFileSync(this.caPath)
+            };
             var req = https.request(options, function(httpsRes) {
                 var buffers = [];
                 httpsRes.on('data', function(chunk) {
@@ -88,9 +93,14 @@ var publishById = function publishById(resource_id, value) {
             req.write(jsonVal);
             console.log(" send message to [https://" + options.hostname + ":" + options.port + options.path + ", value = " + jsonVal);
             req.end();
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
-}
+};
 
 
 /**
@@ -99,6 +109,10 @@ var publishById = function publishById(resource_id, value) {
  * @param {(String)} value -input message will publish
  */
 var publishByTopic = function publishByTopic(topic, value) {
+    if (this.caPath == "") {
+        console.log("please assign ca path");
+        return;
+    }
     var jsonVal = JSON.stringify({
         value: value
     });
@@ -110,7 +124,9 @@ var publishByTopic = function publishByTopic(topic, value) {
     options.headers = this.httpsoptions.headers;
     options.path = '/resources/' + topic;
     options.method = 'PUT';
-    options.rejectUnauthorized = this.httpsoptions.rejectUnauthorized;
+    options.agentOptions = {
+        ca: fs.readFileSync(this.caPath)
+    };
 
     var req = https.request(options, function(httpsRes) {
         var buffers = [];
@@ -123,7 +139,7 @@ var publishByTopic = function publishByTopic(topic, value) {
     req.write(jsonVal);
     console.log(" send message to [https://" + options.hostname + ":" + options.port + options.path + ", value = " + jsonVal);
     req.end();
-}
+};
 
 
 /**
@@ -133,6 +149,10 @@ var publishByTopic = function publishByTopic(topic, value) {
 var subscribeById = function subscribeById(resource_id) {
     if (this.resourceinfo == null) {
         console.log("please assign 'this.resourceinfo' a JSON data generate form QIot");
+        return;
+    }
+    if (this.caPath == "") {
+        console.log("please assign ca path by setCa(path)");
         return;
     }
     for (var i = 0; i < this.resourceinfo.resources.length; i++) {
@@ -145,16 +165,24 @@ var subscribeById = function subscribeById(resource_id) {
             options.headers = this.httpsoptions.headers;
             options.path = '/resources/' + sensor["topic"];
             options.method = 'GET';
-            options.rejectUnauthorized = this.httpsoptions.rejectUnauthorized;
+            options.agentOptions = {
+                ca: fs.readFileSync(this.caPath)
+            };
+
             var data = {
                 "topic": sensor["topic"],
                 "id": resource_id,
                 "connection_options": options
             }
             this.subscribeList.push(data);
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
-}
+};
 
 
 /**
@@ -186,7 +214,7 @@ var getMessage = function getMessage() {
         });
         request.end(); // start the request
     })
-}
+};
 
 /**
  * get topic by resource topic
@@ -202,8 +230,25 @@ var getTopicById = function(resource_id) {
         var sensor = this.resourceinfo.resources[i];
         if (resource_id == sensor["resourceid"]) {
             return sensor["topic"];
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
-}
+};
+
+/**
+ * set ca file path
+ * @param {(String)} ca path
+ */
+var setCa = function(ca_path) {
+    if (fs.existsSync(ca_path)) {
+        this.caPath = ca_path;
+    } else {
+        this.caPath = "";
+        console.log("no such file or directory, open " + ca_path);
+    }
+};
 
 module.exports = httpsConnect;

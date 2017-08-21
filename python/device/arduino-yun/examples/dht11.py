@@ -30,7 +30,7 @@ connection.connect(connection_options)
 """
 	Send sensor's data to QIoT Suite Lite by Resourcetype.
 """
-while True:	
+while 1:	
 	h = bridge_client.get("humidity")
 	t = bridge_client.get("temperature")
 	

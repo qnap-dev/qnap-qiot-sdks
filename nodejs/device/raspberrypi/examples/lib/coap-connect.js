@@ -1,6 +1,6 @@
 /**
  * Copyright (c) QNAP Systems, Inc. All rights reserved.
-*/
+ */
 
 var coap = require('coap');
 var fs = require('fs');
@@ -81,6 +81,11 @@ var publishById = function publishById(resource_id, value) {
                     console.log("Error Code:  " + res.code);
                 }
             })
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
@@ -155,6 +160,11 @@ var subscribeById = function subscribeById(resource_id) {
                     }
                 });
             }).end();
+            break;
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
@@ -173,6 +183,10 @@ var getTopicById = function(resource_id) {
         var sensor = this.resourceinfo.resources[i];
         if (resource_id == sensor["resourceid"]) {
             return sensor["topic"];
+        } else {
+            if (i == (this.resourceinfo.resources.length - 1)) {
+                console.log("can't find the id " + resource_id + " in resourceinfo file");
+            }
         }
     }
 }
