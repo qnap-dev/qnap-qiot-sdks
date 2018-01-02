@@ -61,9 +61,16 @@ If you are having issues using one of the packages or using the QNAP QIoT Suite 
 
 To engage QNAP support, you can create a support ticket directly from the [QNAP Helpdesk](https://helpdesk.qnap.com/).
 
+
+## QIoT GitBook
+To learn more about QIoT, please refer to follow link: 
+https://anderson2007.gitbooks.io/qiot-suite-lite/content/
+
+
 ## Additional resources
 
 In addition to the language SDKs, this repository ([qnap-qiot-sdks](https://github.com/qnap-dev/qnap-qiot-sdks)) contains the following folders:
+
 
 ### /doc
 
