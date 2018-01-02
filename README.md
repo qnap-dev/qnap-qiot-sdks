@@ -2,7 +2,7 @@
 
 # QNAP QIoT Suite Lite 
 
-![Picture](doc/media/Qnap-Banner.jpg)
+![Picture](doc/media/QIoT.jpg)
 
 This repository contains QIoT device SDKs. We provide sample code for enable connect client devices to QNAP QIoT Suite Lite. 
 
