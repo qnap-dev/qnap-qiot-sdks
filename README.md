@@ -29,8 +29,8 @@ QNAP IoT device SDKs can be used with a broad range of OS platforms and devices.
 - **Arduino Yún**
 ![Picture](doc/media/Arduino%20Yún.jpg)
 
-- **Raspberry Pi A/B, Pi 2, Pi 3 Model B**
-![Picture](doc/media/GrovePi_Plus_By_Dexter_Industries_For_the_Raspberry_Pi.JPG)
+- **Raspberry Pi**
+![Picture](doc/media/Raspberrypi.png)
 
 - **Intel® Edison**
 ![Picture](doc/media/Intel-edison-mini-board.png)
