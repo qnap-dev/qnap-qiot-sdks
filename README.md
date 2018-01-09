@@ -2,7 +2,7 @@
 
 # QNAP QIoT Suite Lite 
 
-![Picture](doc/media/Qnap-Banner.jpg)
+![Picture](doc/media/QIoT.jpg)
 
 This repository contains QIoT device SDKs. We provide sample code for enable connect client devices to QNAP QIoT Suite Lite. 
 
@@ -27,13 +27,16 @@ QNAP IoT device SDKs can be used with a broad range of OS platforms and devices.
 ### For Example
 
 - **Arduino Yún**
-![Picture](doc/media/Arduino%20Yún.jpg)
+![Picture](doc/media/arduinouno.png)
 
-- **Raspberry Pi A/B, Pi 2, Pi 3 Model B**
-![Picture](doc/media/GrovePi_Plus_By_Dexter_Industries_For_the_Raspberry_Pi.JPG)
+- **Raspberry Pi**
+![Picture](doc/media/Raspberrypi.png)
 
 - **Intel® Edison**
 ![Picture](doc/media/Intel-edison-mini-board.png)
+
+- **Linkit7688 (Duo)**
+![Picture](doc/media/Linkit7688_(Duo).png)
 
 ## Samples
 
@@ -58,9 +61,16 @@ If you are having issues using one of the packages or using the QNAP QIoT Suite 
 
 To engage QNAP support, you can create a support ticket directly from the [QNAP Helpdesk](https://helpdesk.qnap.com/).
 
+
+## QIoT GitBook
+To learn more about QIoT, please refer to follow link: 
+https://anderson2007.gitbooks.io/qiot-suite-lite/content/
+
+
 ## Additional resources
 
 In addition to the language SDKs, this repository ([qnap-qiot-sdks](https://github.com/qnap-dev/qnap-qiot-sdks)) contains the following folders:
+
 
 ### /doc
 

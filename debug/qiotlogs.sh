@@ -16,7 +16,6 @@ mkdir -p qiotdebug/$service/log
 cp -r $QPKG_PATH/supervisord/log/$service/* qiotdebug/$service/log/
 cp -r $QPKG_PATH/qiot-umm/logs/* qiotdebug/$service/log/
 
-
 service="qiot-ponte"
 echo " ========== $service ========== "
 mkdir -p qiotdebug/$service/log
@@ -73,6 +72,9 @@ echo " ========== $service ========== "
 mkdir -p qiotdebug/$service/log
 cp $QPKG_PATH/iot/watchdog.log* qiotdebug/$service/log/
 cp $QPKG_PATH/iot/networkcheck.log qiotdebug/$service/log/
+cp $QPKG_PATH/install.log qiotdebug/$service/log/
+cp $QPKG_PATH/compose.log qiotdebug/$service/log/
+cp $QPKG_PATH/compose_down.log qiotdebug/$service/log/
 
 echo " ========== qiot-manage ========== "
 cp $QPKG_PATH/*.log qiotdebug/

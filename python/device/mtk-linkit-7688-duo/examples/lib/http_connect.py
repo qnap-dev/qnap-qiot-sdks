@@ -62,6 +62,9 @@ class Http:
                     print "NOW TOPIC_NAME :" + str(res["topic"]) + " MESSAGE : " + str(value)
                 except Exception, error:
                     print error
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def publish_by_topic(self,topic, value):
         """
@@ -93,9 +96,13 @@ class Http:
                             'id':resource_id
                         }
                         self.trigger("message",data);
+                    
                 except Exception, error:
                     print "subscribe_by_id error="
                     print error
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def get_topic_by_id(self, resource_id):
         """
@@ -107,6 +114,8 @@ class Http:
         for res in resources:
             if (resource_id == str(res["resourceid"])):
                 return str(res["topic"])
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def on(self, event_name, callback):
         if self.callbacks is None:

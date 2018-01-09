@@ -127,7 +127,10 @@ class Mqtt:
             if (resource_id == str(res["resourceid"])):
                 vals = "{\"value\":" + str(value) + "}"
                 print "NOW TOPIC_NAME :" + str(res["topic"]) + " MESSAGE : " + str(vals)
-                self.mqtt_client.publish(str(res["topic"]), vals)
+                self.mqtt_client.publish(str(res["topic"]), vals,0,True)
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"    
 
     def publish_by_topic(self, topic, value):
         """
@@ -135,7 +138,7 @@ class Mqtt:
         :param resource_id : input resource topic
         :param value : input message will publish
         """
-        self.mqtt_client.publish(topic, value)
+        self.mqtt_client.publish(topic, value, vals,0,True)
 
     def subscribe_by_id(self, resource_id):
         """
@@ -147,6 +150,9 @@ class Mqtt:
             if (resource_id == str(res["resourceid"])):
                 self.mqtt_client.subscribe(str(res["topic"]))
                 print "add subscribe :" + str(res["topic"])
+                break
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def get_topic_by_id(self, resource_id):
         """
@@ -158,6 +164,8 @@ class Mqtt:
         for res in resources:
             if (resource_id == str(res["resourceid"])):
                 return str(res["topic"])
+            elif res==resources[-1]:
+                print "can't find the id " + resource_id + " in resourceinfo file"
 
     def on(self, event_name, callback):
         if self.callbacks is None:

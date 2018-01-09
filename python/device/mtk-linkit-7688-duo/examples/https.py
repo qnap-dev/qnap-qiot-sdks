@@ -19,7 +19,7 @@ from lib import qiot
 """
 connection = qiot.connection(qiot.protocol.HTTPS)
 connection_options = connection.read_resource('./res/resourceinfo.json')
-connection.set_cacert(False) #CA Certificate
+connection.set_ca("./ssl/mycert.pem")
 
 """
 	Send data to QIoT Suite Lite.

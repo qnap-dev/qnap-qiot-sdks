@@ -35,7 +35,7 @@ connection.connect(connection_options)
 """
 	Send sensor's data to QIoT Suite Lite by Resourcetype.
 """
-while True:	
+while 1:	
 	button_state = bridge_client.get("button")
 	connection.publish_by_id("button", str(button_state))
 	time.sleep(1)
