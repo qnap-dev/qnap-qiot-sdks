@@ -1,0 +1,21 @@
+{
+    "username": "dbb7f48d-84ea-484c-b0b1-3696e25e773d",
+    "myqnapcloudHost": "Not Available",
+    "clientId": "cameraPi_1520857715",
+    "host": [
+        "172.17.28.52"
+    ],
+    "password": "r:7d8edb35c25c1dbe376ae5c1031ed2bb",
+    "port": 21883,
+    "resources": [
+        {
+            "description": "",
+            "datatype": "String",
+            "resourceid": "image",
+            "topic": "qiot/things/admin/cameraPi/image",
+            "resourcename": "image",
+            "resourcetypename": "Custom Sensor(String)",
+            "unit": "°C"
+        }
+    ]
+}
