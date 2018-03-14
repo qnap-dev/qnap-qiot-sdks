@@ -82,6 +82,6 @@ Setup the camera in Raspberry Pi device and start the program by executing the f
 
     python send_image_AWSGG.py -e <host>.iot.<region>.amazonaws.com -r root.ca.pem -c <GG_Camrea_Cert_pem_file> -k GG_Camrea_Cert_private_key_file -n GG_Camera -m publish -t "cameraImage"
 
-#### ___Step-7:___ Verify your dashboard
+#### ___Step-7:___ Verify the demo
 
   ![](./images/qiot_step4.png) 
