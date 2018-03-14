@@ -1,27 +1,15 @@
-Setup video capture and mqtt client on Raspberry Pi
-===
+# Tutorial to setup Image prediction using AWS Greengrass(GG) + QIoT + QuAI using Raspberry Pi Camera
 
-## Dependency Library and software
-1. paho-mqtt
-    - ``pip install paho-mqtt``
-2. fswebcam
-    - ``sudo apt update && sudo apt install fswebcam ``
+## Example Scenarios to predict captures image from Raspberry Pi
 
-## Run the program
-1. Put resourceinfo.json under the "/res" folder
-2. Run command : ``python main.py``
+- AWS GG device --> AWS GG Core --> QIoT --> QuAI --> AWS GG Core Lambda --> AWS Cloud --> S3 bucket
 
+![](./Greengrass_device_QIoT_QuAI/images/scenario1.png)
 
+Please refer this link <> to setup this scenario
 
+- QIoT device --> QIoT --> QuAI --> AWS GG Core Lambda --> AWS Cloud --> S3 bucket
 
-Reference
-===
+![](./Greengrass_device_QIoT_QuAI/images/scenario2.png)
 
-## QNAP QIoT Suite Lite
-https://www.qnap.com/solution/qiot-suite/en/
-
-## QNAP QuAI
-https://www.qnap.com/solution/quai/en/index.php
-
-## AWS Greengrass 
-https://aws.amazon.com/tw/greengrass/
+This scenario steps are same as scenario1 exclude the Raspberry Pi program execution. Please refer this link <> to setup the device.
