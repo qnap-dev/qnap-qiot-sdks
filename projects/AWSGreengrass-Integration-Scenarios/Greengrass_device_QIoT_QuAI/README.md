@@ -16,7 +16,7 @@
 ![](./images/step1.png)
 
 2.  Setup your AWS Greengrass Group & Core in QNAP AWS Greengrass App. Please refer this link for more details https://qiot.qnap.com/blog/en/2018/01/17/setup-greengrass-qnap-nas/
-3.  Create SendGGImageToQIoT & QIoTIntegration Node.js Lambda functions inside AWS Greengrass Lambda function  as shown in the below image and update it's configuration setting's Memeory limit and timeout. Please find Demo Lambda source codes inside <> folder
+3.  Create SendGGImageToQIoT & QIoTIntegration Node.js Lambda functions inside AWS Greengrass Lambda function  as shown in the below image and update it's configuration setting's Memeory limit and timeout. Please find Demo Lambda source codes inside this folder [AWS_Greengrass_Lambda](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/AWS_Greengrass_Lambda "AWS_Greengrass_Lambda")
 
 ![](./images/step2.png)
 
@@ -40,16 +40,16 @@
 ![](./images/step5.png)  
 
 #### ___Step2:___ Setup AWS GG Device
-Deploy the "Capture image" source code from <> folder to Raspberry Pi
+Install AWSIoTPythonSDK package in your Raspberry Pi and deploy the "Capture image" source code from this folder [RaspberryPi_side](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/RaspberryPi_side "RaspberryPi_side") to Raspberry Pi
   
 #### ___Step3:___ Setup QIoT  
-1. Import <> folder LiveDemo.json to QIoT
-2. If you are using old QIoT version then please follow the below manual instruction
-+ Create 2 things as below
+1. Import IoT App exported json file [LiveDemo.json](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/QIoT_IoT_App "LiveDemo.json")  to QIoT
+2. If you are using old QIoT version or can not import this json then please follow the below manual setup instruction
++ Create an IoT App and 2 things as below
 
   ![](./images/qiot_step1.png)  
   
-+ Import <> to rules using Rules tab --> Import --> Clipboard option. After import you can see the following 2 rules flow
++ Import rulesJson.json(https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/QIoT_IoT_App "rulesJson.json") in Node-Red rule engine using Rules tab --> Import --> Clipboard option. After import you can see the following 2 rules flow
 
   ![](./images/qiot_step2.png)  
   
@@ -60,7 +60,7 @@ Deploy the "Capture image" source code from <> folder to Raspberry Pi
   ![](./images/qiot_step4.png)  
 
 #### ___Step4:___ Setup QuAI
-Please follow this link <> to setup QuAI container in QNAP NAS container station app.
+Please follow this section QuAI_Sample_Demo_API(https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/QuAI_Sample_Demo_API "QuAI_Sample_Demo_API") to setup QuAI container in QNAP NAS container station app.
 
 #### ___Step5:___ Setup AWS cloud S3 bucket & Rules
 1. Create MoveImageToS3 Node.js Lambda function in AWS Lambda service
