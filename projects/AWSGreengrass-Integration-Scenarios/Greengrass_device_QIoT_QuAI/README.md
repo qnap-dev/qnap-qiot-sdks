@@ -39,6 +39,15 @@
 
 ![](./images/step5.png)  
 
+7. Verify Greengrass core daemon status in QNAP Greengrass App
+
+![](./images/step6.png)  
+
+8. Trigger the QIoTIntegration Lambda function to receive QIoT message. So that, you have to download AWS IoT Python SDK --> [basicDiscovery.py](https://github.com/aws/aws-iot-device-sdk-python/blob/master/samples/greengrass/basicDiscovery.py "basicDiscovery.py") and execute the following command. Please use GG_Camera device certificate files to trigger this Lambda function
+
+      ___python basicDiscovery.py -e <youtiothostname>.iot.<region>.amazonaws.com -r root-ca.pem -c .\LiveDemo\XXXXXXXX.cert.pem -k .\LiveDemo\XXXXXXXX.private.key -n GG_Camera -m publish -t triggerLambda  -M "{'status':'start'}"___
+  
+
 #### ___Step-2:___ Setup AWS GG Device
 Install AWSIoTPythonSDK package in your Raspberry Pi and deploy the "Capture image" source code from this folder [RaspberryPi_side](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/RaspberryPi_side "RaspberryPi_side") to Raspberry Pi
   
