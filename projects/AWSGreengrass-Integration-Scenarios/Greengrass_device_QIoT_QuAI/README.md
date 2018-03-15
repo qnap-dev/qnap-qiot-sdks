@@ -2,7 +2,7 @@
 
 #### How to setup?
 
-1. [Prepare AWS Greengrass](#step-1-prepare-aws-greengrass)
+1. [Prepare AWS Greengrass Core](#step-1-prepare-aws-greengrass-core)
 2. [Setup AWS GG Device](#step-2-setup-aws-gg-device)
 3. [Setup QIoT](#step-3-setup-qiot)
 4. [Setup QuAI](#step-4-setup-quai)
@@ -10,7 +10,7 @@
 6. [Start the demo](#step-6-start-the-demo)
 7. [Verify the demo](#step-7-verify-the-demo)
 
-#### ___Step-1:___ Prepare AWS Greengrass
+#### ___Step-1:___ Prepare AWS Greengrass Core
 1.  Install AWS Greengrass App in QNAP NAS from App center
 
 ![](./images/step1.png)
