@@ -2,13 +2,13 @@
 
 #### How to setup?
 
-1. [Prepare AWS Greengrass](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step1-prepare-aws-greengrass "Prepare AWS Greengrass")
-2. [Setup AWS GG Device](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step2-setup-aws-gg-device "Setup AWS GG Device")
-3. [Setup QIoT](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step3-setup-qiot "Setup QIoT")
-4. [Setup QuAI](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step4-setup-quai "Setup QuAI")
-5. [Setup AWS cloud S3 bucket & Rules](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step5-setup-aws-cloud-s3-bucket--rules "Setup AWS cloud S3 bucket & Rules")
-6. [Start the demo](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step6-start-the-demo "Start the demo")
-7. [Verify the demo](https://github.com/qnap-dev/qnap-qiot-sdks/tree/master/projects/AWSGreengrass-Integration-Scenarios/Greengrass_device_QIoT_QuAI/#step-7-verify-the-demo "Verify the demo")
+1. [Prepare AWS Greengrass](#step-1-prepare-aws-greengrass)
+2. [Setup AWS GG Device](#step-2-setup-aws-gg-device)
+3. [Setup QIoT](#step-3-setup-qiot)
+4. [Setup QuAI](#step-4-setup-quai)
+5. [Setup AWS cloud S3 bucket & Rules](#step-5-setup-aws-cloud-s3-bucket--rules)
+6. [Start the demo](#step-6-start-the-demo)
+7. [Verify the demo](#step-7-verify-the-demo)
 
 #### ___Step-1:___ Prepare AWS Greengrass
 1.  Install AWS Greengrass App in QNAP NAS from App center
