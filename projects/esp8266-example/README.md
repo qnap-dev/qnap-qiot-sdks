@@ -4,6 +4,6 @@
 
 - arduino-core : ESP8266 use Arduino core
 
-- at-command-with-arduino-uno: Arduino + ESP8266 AT command
+- at-command-with-arduino: Arduino + ESP8266 AT command
 
 and "qiot-suite-lite-export" is example for QIoT Suite Lite IoT Application.
