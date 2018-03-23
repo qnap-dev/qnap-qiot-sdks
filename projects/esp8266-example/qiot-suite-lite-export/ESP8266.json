@@ -1,0 +1,63 @@
+{
+    "result": {
+        "iotapplication": {
+            "things": [
+                {
+                    "thingattributes": {},
+                    "description": "",
+                    "thingId": "7308624f-5630-48e6-9a82-26bb1754c5ff",
+                    "thingname": "ESP8266",
+                    "thingtypeattributes": null,
+                    "type": "Custom",
+                    "resources": [
+                        {
+                            "default_value": "",
+                            "description": "",
+                            "datatype": "Boolean",
+                            "resourceid": "button",
+                            "old_resourcename": "button",
+                            "maxvalue": "",
+                            "minvalue": "",
+                            "old_resourcetype_id": "582ebca667ad91000645dec3",
+                            "resoucetypeqiotid": "qiot.button",
+                            "old_resourceObjectid": "5a9f98c19c31dc0033627d1e",
+                            "old_resourceid": "button",
+                            "resourcename": "button",
+                            "unit": ""
+                        },
+                        {
+                            "default_value": "",
+                            "description": "",
+                            "datatype": "Boolean",
+                            "resourceid": "led",
+                            "old_resourcename": "led",
+                            "maxvalue": "",
+                            "minvalue": "",
+                            "old_resourcetype_id": "586dc3615a6b6800065c0226",
+                            "resoucetypeqiotid": "qiot.custom.boolean",
+                            "old_resourceObjectid": "5ab0dca99c31dc0033630471",
+                            "old_resourceid": "led",
+                            "resourcename": "led",
+                            "unit": ""
+                        }
+                    ]
+                }
+            ],
+            "rulesdata": {
+                "node_model": {
+                    "freeboardDesc": "",
+                    "freeboardId": "89638dee202211e8aed0c9e2b31e064b",
+                    "noderedId": "89633fcf202211e8942da1600f2c3fdb",
+                    "version": 1,
+                    "ruleName": "Rule_ESP8266",
+                    "freeboardName": "Dashboard_ESP8266",
+                    "ruleDesc": ""
+                },
+                "rules": "H4sIAAAAAAAAA71Uy27cOgz9FUPriSNZtiy76KZFF10UbdHucoMBrcfEiG05tpw0N7j/fil5JplJU/Sx6E48JCWR55AXD6TVpCalFo2trExpqXghyYb4+9Ggw0ODRgeN6dDqoR3If5t9kskaLQ0UaaEE40852jTLDs1/X7x4gD4Eve1adZ3E0AQfSbxL7sCrq0SDh2T2k4Eeo0H59hbj/bSYDVFumF0X0i10syEB6cfO+GPoG6lzxtNiQ+5JXZYbctdOZib1xeXjz6W1WVFok8qCSnpU7k3rfDO5azMlWOlPSvjw+evX5IOZZ9iZ5H0It527ezHDjX6rltm73ruxVaSOn8XvH2N7axvNrawE51bZjGYZY0ZWeaaBCUptprjVgRZ/1Q678B6nUmS5PSsEp2e5NOKsApmdZaJpWFnkqrAWw28O74Qqz2PyfA66b4fzd18+yUyI885oDFxmM+1rjG6EpqWLPXwgt4gWUNlKKlYpzrSilHORlZqF7vfGA6kfyDK0HiMRCYTu2/vGIXsQJESQkkhFs3jvELnEJi1+XDy+wjbk2iB5ZKohy2VpOYfSSlVmeVVZLpRRFVRUsqZZ+WaMHvjmT3xffK/QKhdW2xJSJowqESiKElvKELC8kuTySSMFoDZKw9O8YgAvawR//Fsi+RjjfySGP5XBjcNqSRZYwuYjXTi2OC5/VyC/RxgXhwFlsnhpQr8jat98dQXDzvys6SeCDTLs3W1IGvE4wn3nQKe30MUejdE/h4Xl3ZM/mgdXUGfYRG5YLx8nN5rJ36+WnVy/nuIFkYfdI6uh2pKutfITdT5X2LH4TmV5oj0N81XjYNJxVc5umZT5FSW+WSctjl5M2t9ZyMw0CoQoQVeMUipyXI0qjEt4bnsI3z6/J3rjd8MpbQ74YeDno4nfxIUwr+1BxWzX9tfD0nUIwLdnAAo5XHNY/HYZ1MpFuucneZ0cWSubr/4ZcAKWaQiuV6FyZ6aJ1HRlgcnIAj8R3OX//lZeUQMHAAA=",
+                "dashboard": "H4sIAAAAAAAAA61TTU/DMAz9L770UqF+MNh65IDYZReOU1WFJt0sZcmWuAw09b9jdx0MjSOXtn7Pdl6e3RNgfN2qYKDqlI0mhXcTInoHVZ6CstYfG6ORoKLQM7u3/QZdhGpdc6Cckc8THFHTdiwJ/gjVCbIxKPk5pNB6O2HZNdb8VPHXxtC5F33uWQ2g09gq8gFSiIYI3SZKF0Kywj/1RCyTBSvbC6AVqej70Jq4Ts5sUq+TkU5q4DODOfPSpgt+x0XOaxOMhosE1AzOZo8PWZaru7wrF3PmpqylkPPFQ1l2bVdkRZHnZr64L7TKOb8r2rLTb5wuN2ic2v2SqTHurfq8xU1sA+5p9BwYOKCn5iL1Jn2HrrncWEL1cR2KB3J6lBLvrVFS0zsUb+GXk+z01Ht83QhcndFpGmQ+CMTBQ4/i17gOQz0MvAYYn9nM1eTkxKTX87g+7fsmU+fv+J+l/anrMubln2PG+IKRNw7b6W+QLryo/U42vhy+AFNc9VEtAwAA"
+            },
+            "description": "",
+            "appname": "ESP8266"
+        }
+    }
+}
