@@ -1,0 +1,123 @@
+{
+    "result": {
+        "iotapplication": {
+            "description": "",
+            "appname": "app",
+            "things": [
+                {
+                    "thingattributes": {},
+                    "description": "",
+                    "thingId": "ed136f62-d2e1-4b26-ab96-267b8179f150",
+                    "thingname": "linklt7697",
+                    "thingtypeattributes": {
+                        "attributes": {},
+                        "thingtype": {
+                            "thingtypename": "Linklt 7697",
+                            "attributes": {},
+                            "type": "Custom",
+                            "description": ""
+                        }
+                    },
+                    "type": "Custom",
+                    "resources": [
+                        {
+                            "default_value": "",
+                            "description": "",
+                            "datatype": "Int",
+                            "resourceid": "temp",
+                            "old_resourcename": "Temp",
+                            "maxvalue": "100",
+                            "minvalue": "0",
+                            "old_resourcetype_id": "586dc38c5a6b6800065c0227",
+                            "resoucetypeqiotid": "qiot.custom.int",
+                            "old_resourceObjectid": "5b4bfb229c31dc0033eb03ca",
+                            "old_resourceid": "temp",
+                            "resourcename": "Temp",
+                            "unit": "°C"
+                        }
+                    ]
+                }
+            ],
+            "rulesdata": {
+                "node_model": {
+                    "freeboardDesc": "",
+                    "freeboardId": "",
+                    "noderedId": "11a710b7889b11e8822a1f05e92d1a4c",
+                    "version": 1,
+                    "ruleName": "Rule_app",
+                    "freeboardName": "Dashboard_app",
+                    "ruleDesc": ""
+                },
+                "rules": "H4sIAAAAAAAAA5VV3W7bNhR+FUIXQ7sZhPgjS3Kxm3Ud0Iug7eIVKLIgOOKPrUUSHYqylxa97qPsvfYkO5Jc20ncejZsQKQP7e/nfIdXn6JSR7NIxUxLBpICt4WKJlG4XxncD1DgooLCVLj6rXIbwqLPk+0paayVRZ5QyAQkcn9Mubo2TcCNj8d+vIG6r3rpGlsuOm/Iu1+8uzWeNE4bAo0m3ihTrg2pTdvCwlA8VDbW4SF8+juaccEn0X00y+JJtCm9aaPZ1fUOVy6KnEMsKZOQmOxcXIySy65olS+LHYLHAFiWDQAYP4qAx0nMudA01yrXZo9Am6JbnNKlKtUtGSoJGkCCIxsIakk0BCBt8AZqrAYVUKJoFnxnJkitaV3VH7dQtf0/ItlVZcLhFgKXuRyBJ+lR6VQstTaCiqnmB46WzV9GnRLufelDBxV5tR5FDm5VqlGyFdxXDvSDxXwrCYQemzcrA2EsUN41fesNC9eoHcte+XS0XsqUxv1LCJFm05jt6VxFOreMcwWUCW7y6HpP8NE3O4K2a1BP15ygqLu6vh+MwL3+DO6twZM1+ZlcQFhSWznnnw2PHjvZ1c+e/8ji+Cf2/MWfTd0u6JY81n9aQ9WZ2fozfuNN6HxDsOBFT7kLqy4gFSTVOON9NIsH8iKZnibPjQSYSkUTq+QUDtlDmuVxwS3lgilxdjIuy7qr0K6dww8zkQiaDPDEVHwL3h4LM1woDoxaYyDR52LhlLztiqpsl18zOkyOdokzyjVoUbssHHj9ZHRIuUUp4+Q0SiEVAM8SmiZFyg+SfFe6UIxjqzzVNRfv5nNysUX5uq/GNtn0fjAp1ZRlNDNgWO+HW4Ub1bXB1dv0bON9uBX9cfnq95v5m7evX94wluWKywHYsmwWI8+7g+h1rfFbHKDrAavvqpHmw1a7NahK5GcaklSJPE50XiiwfCqmecbRpVxbHadsa3eaP50kV09G30H3PW7MY1oinnPEfNMF8gP59cDsbwj4fenuXDuKhTkElGh4/v96ohpJfnIs7YVQ3CrLQdNMgVTndv58WbYE38HggO/T2DdTf0sMvd9/ykA2zt+2lHxwHVHQ4IVaO7xPy3DkKk2+ppYfjanNuGVMUJ4am9lzwf775Z8dCDVcbAgOsQZfLhbo9zgkyTAK+9xuSr0wgTi7TzB5AjmNR63z72h9/R/p/BJb3AgAAA=="
+            },
+            "freeboarddata": {
+                "freeboardSettings": {},
+                "panes": [
+                    {
+                        "widgets": [
+                            {
+                                "datasourceSettings": [
+                                    {
+                                        "dataSourceId": "5b4bfb229c31dc0033eb03cc",
+                                        "isDatasource": true,
+                                        "field_name": "value",
+                                        "script": ""
+                                    }
+                                ],
+                                "widgetSettings": {
+                                    "max_value": 100,
+                                    "min_value": 0,
+                                    "value": "datasources[\"qiotsupported_Temp\"][\"value\"]"
+                                },
+                                "widgettype": "gauge"
+                            }
+                        ],
+                        "created_on": "2018-07-16T08:44:59.837000Z",
+                        "panesSetting": {
+                            "width": 1,
+                            "col_width": 1,
+                            "col": {
+                                "0": 0,
+                                "3": 1
+                            },
+                            "row": {
+                                "0": 1,
+                                "3": 1
+                            }
+                        }
+                    }
+                ],
+                "description": "",
+                "fbversion": "1.1.296",
+                "name": "Dashboard_app",
+                "dataSources": [
+                    {
+                        "datasourceSetting": {
+                            "value": "USER_TOPIC_1189c24e"
+                        },
+                        "freeboardID": "5b4bfaa89c31dc0032eed746",
+                        "name": "USER_TOPIC_1189c24e",
+                        "type": "qiot_customTopic",
+                        "qiot_supported": false,
+                        "dataSourceId": "5b4bfab39c31dc0032eed752",
+                        "resourceID": null,
+                        "thingID": null
+                    },
+                    {
+                        "datasourceSetting": {
+                            "value": "linklt7697/temp"
+                        },
+                        "freeboardID": "5b4bfaa89c31dc0032eed746",
+                        "name": "qiotsupported_Temp",
+                        "type": "qiot_datasource",
+                        "qiot_supported": true,
+                        "dataSourceId": "5b4bfb229c31dc0033eb03cc",
+                        "resourceID": "5b4bfb229c31dc0033eb03ca",
+                        "thingID": "ed136f62-d2e1-4b26-ab96-267b8179f150"
+                    }
+                ]
+            },
+            "version": "1.1.296"
+        }
+    }
+}
