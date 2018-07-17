@@ -74,7 +74,10 @@ void loop()
     long randNumber = random(100) + 1;
     String payload = "{\"value\":" + String(randNumber) + "}";
     // publish to QIoT Server
-    upload.publish(QIOT_TOPIC, payload.c_str());
+    if (upload.publish(QIOT_TOPIC, payload.c_str()))
+    {
+      Serial.println("Message => " + payload + " has been sent to " + QIOT_SERVER_IP + ".");
+    }
     delay(100);
   }
 
