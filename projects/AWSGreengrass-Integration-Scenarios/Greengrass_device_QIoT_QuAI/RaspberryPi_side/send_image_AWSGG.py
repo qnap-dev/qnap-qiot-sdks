@@ -1,5 +1,5 @@
 #ADD DHT11 LIBRARY
-import Adafruit_DHT
+#import Adafruit_DHT
 import RPi.GPIO as GPIO
 #########################
 #ADD Image
@@ -152,12 +152,12 @@ time.sleep(2)
 loopCount = 0
 
 #SET DHT11 CONFIG
-sensor = Adafruit_DHT.DHT11
-pin = 4
-led_pin = 37
+#sensor = Adafruit_DHT.DHT11
+#pin = 4
+#led_pin = 37
 
-GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
-GPIO.setup(led_pin, GPIO.OUT)
+#GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
+#GPIO.setup(led_pin, GPIO.OUT)
 ###################################
 #SET CAPTURE
 def capture():
@@ -166,12 +166,12 @@ def capture():
 
 while True:
     if args.mode == 'both' or args.mode == 'publish':
-        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+        #humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         capture()
         with open("Image.jpg", "rb") as image_file: 
             encoded_string = base64.b64encode(image_file.read())
         message = {}
-        message['value'] = {'temp':temperature, 'hum':humidity, 'image':encoded_string} #message
+        message['value'] = {'image':encoded_string} #message
         messageJson = json.dumps(message)
         myAWSIoTMQTTClient.publish(topic, messageJson, 0)
         if args.mode == 'publish':
