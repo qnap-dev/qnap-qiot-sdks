@@ -19,7 +19,7 @@
   ```bash
   npm install node-red-contrib-modbus
   ```
-  ![](.\image\SSH.png)
+  ![](image/SSH.png)
   註: ssh連線方式可參考此篇教學文 - [How to access QNAP NAS by SSH?](https://www.qnap.com/en/how-to/knowledge-base/article/how-to-access-qnap-nas-by-ssh/)
 
 ## Modbus Config 編輯範例：
@@ -55,25 +55,25 @@
 ## 如何將meters.config放進NAS
 
 1. 登入QTS WEB UI，點選File Station
-![](.\image\QTS.jpg)
+![](image/QTS.jpg)
 
 2. 於畫面左側點選Web後，按下上傳圖示
-![](.\image\file_station.jpg)
+![](image/file_station.jpg)
 
 3. 將編輯好的meters.config上傳
-![](.\image\upload_file.jpg)
+![](image/upload_file.jpg)
 
 ## 匯入Qpower IoT application
 1. 於IoT application點選import(如標示1)
 
 2. 選擇你要import的IoT application(如標示2)
-![](.\image\import.png)
+![](image/import.png)
 
 ## 修改QHistoric Node 的key
 1. 於QIoT application Qpower_AU中點選Rule
 2. 分別於標示1-標示12進行雙點擊後滑鼠移至按扭Done處並且按下
 3. 最後再按下Save的按鈕
-![](.\image\QHistoric.png)
+![](image/QHistoric.png)
 
 ## 修改Modbus IP
 **請參照"Modbus Config 編輯範例"修改**
@@ -115,10 +115,10 @@
 ]
 ```
 2. 切換頁面至Things新增一組電表 :
-    ![](.\image\thing_add.jpg)
+    ![](image/thing_add.jpg)
 
 3. 再新增Resource : 
-    ![](.\image\resource_add.jpg)
+    ![](image/resource_add.jpg)
 
 4. 切換到Rule頁面，參照以下圖片操作 :
     * 複製1、2節點
@@ -128,23 +128,23 @@
     * 修改QBroker，選擇剛剛建立的Thing跟Resource
     * 修改Modbus Flex Getter，選擇剛剛建立的Server Config
 
-    ![](.\image\rule1.jpg)
+    ![](image/rule1.jpg)
 
     * 複製1、2節點
     * 修改Historic節點，選擇建立的Thing及Resource(3、4)
     * 修改Named EM3 Data，將`msg.name`紅框處將array 數字加1(有多少電表就按照順序加)(5、6)
 
-    ![](.\image\rule2.jpg)
+    ![](image/rule2.jpg)
 
     * 下圖同上圖複製和修改，修改Historic節點和Named EM3 Data
 
-    ![](.\image\rule3.jpg)
-    ![](.\image\rule4.jpg)
+    ![](image/rule3.jpg)
+    ![](image/rule4.jpg)
 
 5. 最後在點擊"Save"即完成
 
 ## 開啟Dashboard
 
 1. 在Rule頁面中，點擊下圖紅框處即可開啟Dashboard
-   ![open_dashboard](.\image\open_dashboard.jpg)
-   ![dashboard](.\image\dashboard.jpg)
+   ![open_dashboard](image/open_dashboard.jpg)
+   ![dashboard](image/dashboard.jpg)
