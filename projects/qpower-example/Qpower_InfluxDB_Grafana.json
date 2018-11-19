@@ -1,0 +1,85 @@
+{
+    "result": {
+        "iotapplication": {
+            "description": "",
+            "appname": "Qpower_InfluxDB_Grafana",
+            "things": [],
+            "rulesdata": {
+                "node_model": {
+                    "freeboardDesc": "",
+                    "freeboardId": "",
+                    "noderedId": "03c3528ee98311e8bb19719c8b7fe295",
+                    "version": 1,
+                    "ruleName": "Rule_Qpower_InfluxDB_Grafana",
+                    "freeboardName": "Dashboard_Qpower_InfluxDB_Grafana",
+                    "ruleDesc": ""
+                },
+                "rules": "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"
+            },
+            "freeboarddata": {
+                "freeboardSettings": {},
+                "panes": [
+                    {
+                        "widgets": [
+                            {
+                                "datasourceSettings": [
+                                    {
+                                        "dataSourceId": "5bee8f7d9c31dc0026f082cf",
+                                        "isDatasource": true,
+                                        "field_name": "value",
+                                        "script": ""
+                                    }
+                                ],
+                                "widgetSettings": {
+                                    "max_value": 100,
+                                    "min_value": 0,
+                                    "value": "datasources[\"qiotrule_USER_TOPIC_280b0f87\"][\"value\"]"
+                                },
+                                "widgettype": "gauge"
+                            }
+                        ],
+                        "created_on": "2018-11-16T09:35:55.131000Z",
+                        "panesSetting": {
+                            "width": 100,
+                            "col_width": 1,
+                            "col": {
+                                "0": 0,
+                                "1": 1,
+                                "2": 1,
+                                "3": 1,
+                                "4": 1,
+                                "5": 1
+                            },
+                            "row": {
+                                "0": 1,
+                                "1": 1,
+                                "2": 1,
+                                "3": 1,
+                                "4": 1,
+                                "5": 1
+                            }
+                        }
+                    }
+                ],
+                "description": "",
+                "fbversion": "1.1.377",
+                "name": "Dashboard_Qpower_InfluxDB_Grafana",
+                "dataSources": [
+                    {
+                        "datasourceSetting": {
+                            "value": "USER_TOPIC_280b0f87"
+                        },
+                        "freeboardID": "5bee8f7a9c31dc0027cc61e5",
+                        "name": "USER_TOPIC_280b0f87",
+                        "type": "qiot_customTopic",
+                        "qiot_supported": false,
+                        "dataSourceId": "5bee8f7d9c31dc0026f082cf",
+                        "resourceID": null,
+                        "thingID": null
+                    }
+                ]
+            },
+            "version": "1.1.377"
+        }
+    }
+}
