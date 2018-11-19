@@ -88,6 +88,15 @@ Step 4: 步驟1、2、3完成後即可於畫面中間部份看到結果
 進階使用的方式可以參考以下的影片
 https://drive.google.com/file/d/1BKcANHEYlXlyXmUl5Yrpdiw95AB3NsrI/view
 
+## 安裝Grafana plugin
+本範例中需要piechart的plugin，其安裝方式如下
+
+https://grafana.com/plugins/grafana-piechart-panel/installation
+
+![](https://i.imgur.com/N9i89jK.png)
+
+安裝完畢後，重啟Grafana container即可生效
+
 
 ## 匯入QIoT application
 
@@ -107,7 +116,7 @@ Step 2: 按下 Import，如同標示2處
 
 請將以下檔案下載回來
 
-https://drive.google.com/open?id=1roMi-2zLFj9lit8qC43dZaHC1r1PH4OH
+[Dashboard setting](https://github.com/qnap-dev/qnap-qiot-sdks/blob/master/projects/dae-modbus-influxDB-example/dashboard/2018_11_09%20QIoT%20w_%20Grafana%20Demo%20(Qpower)-1542608869709.json)
 
 Step 1: 將上述檔案使用編輯器打開後，複製並貼上於標示1處或是直接按下Upload.json file(標示2處)
 
