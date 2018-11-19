@@ -92,7 +92,8 @@ https://drive.google.com/file/d/1BKcANHEYlXlyXmUl5Yrpdiw95AB3NsrI/view
 ## 匯入QIoT application
 
 於QIoT中，匯入範例 app
-
+dae-modbus-influxDB-example/Qpower_AU.json
+or 
 https://drive.google.com/open?id=1QTZY4G5J50ALSOCqkhU9YhxtBWIbKTyp
 
 
