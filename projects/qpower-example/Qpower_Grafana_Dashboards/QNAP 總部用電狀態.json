@@ -1,0 +1,1054 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "panels": [
+    {
+      "content": "<script>\nfunction refreshMyPanel() {\n  var now = new Date();  // the current datetime as a Date object\n  // var utc = now.getTime() + (now.getTimezoneOffset() * 60000);\n  // var nowwithtimezone = new Date(utc + (3600000*8));\n  \n  var start = new Date(Date.UTC(\n      now.getFullYear(), \n      now.getMonth(),\n      1 , 0, 0, 0, 0)).toISOString();\n      \n  var end = new Date(Date.UTC(\n      now.getFullYear(), \n      now.getMonth() + 1,\n      0 , 0, 0, 0, 0)).toISOString();\n      \n  start = start.split(\"T\")[0];\n  end = end.split(\"T\")[0];\n  \n  datetext = now.toTimeString().split(' ')[0]\n    \n  document.getElementById(\"interval\").innerHTML = `本期區間: ${start} ~ ${end} 目前時間: ${formatDate(now) + \" \" + datetext}`;\n}\n\n$(document).ready(function() {\n  refreshMyPanel(); // For the initial load of data\n\n  // Refetch data every time the \"refresh\" event is broadcast\n  angular.element('#panel-10').injector().get('$rootScope').$on('refresh', function() {\n    refreshMyPanel();\n  });\n});\n\nfunction formatDate(date) {\n  var d = new Date(date),\n      month = '' + (d.getMonth() + 1),\n      day = '' + d.getDate(),\n      year = d.getFullYear();\n  \n  if (month.length < 2) month = '0' + month;\n  if (day.length < 2) day = '0' + day;\n  \n  return [year, month, day].join('-');\n}\n\n</script>\n\n\n<font size=5><center id=\"interval\"></center></font>\n<style>\n.panel-title-text{\nfont-size: 15px;\n}\n.panel-container {\nheight: 100%;\n}\n</style>",
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "links": [],
+      "mode": "html",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Qpower",
+      "decimals": 2,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 0,
+        "y": 2
+      },
+      "id": 2,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "  kWh",
+      "postfixFontSize": "100%",
+      "prefix": "本月 QNAP 總部總用電度數:",
+      "prefixFontSize": "100%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(EP_Diff) from EST_FEE WHERE $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "title": "",
+      "type": "singlestat",
+      "valueFontSize": "100%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Qpower",
+      "decimals": 1,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 2
+      },
+      "id": 3,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "    元",
+      "postfixFontSize": "100%",
+      "prefix": "本月 QNAP 總部總用電費用:",
+      "prefixFontSize": "100%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(total_fee_after_tax) from EST_FEE WHERE $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "title": "",
+      "type": "singlestat",
+      "valueFontSize": "100%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "dashboardFilter": "",
+      "dashboardTags": [],
+      "folderId": null,
+      "gridPos": {
+        "h": 22,
+        "w": 4,
+        "x": 0,
+        "y": 5
+      },
+      "id": 12,
+      "limit": "20",
+      "links": [],
+      "nameFilter": "",
+      "onlyAlertsOnDashboard": false,
+      "show": "current",
+      "sortOrder": 2,
+      "stateFilter": [],
+      "title": "QNAP 總部目前超約狀態",
+      "type": "alertlist"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": "0.03"
+      },
+      "datasource": "Qpower",
+      "fontSize": "120%",
+      "format": "kwatth",
+      "gridPos": {
+        "h": 11,
+        "w": 5,
+        "x": 4,
+        "y": 5
+      },
+      "id": 15,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "values": false
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "strokeWidth": "5",
+      "targets": [
+        {
+          "alias": "2樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(EP_Diff) from EST_FEE where \"floor\" =~ /^2/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "2F"
+            }
+          ]
+        },
+        {
+          "alias": "3樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(EP_Diff) from EST_FEE where \"floor\" =~ /^3/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "3F"
+            }
+          ]
+        },
+        {
+          "alias": "4樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(EP_Diff) from EST_FEE where \"floor\" =~ /^4/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "4F"
+            }
+          ]
+        },
+        {
+          "alias": "5樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(EP_Diff) from EST_FEE where \"floor\" =~ /^5/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "5F"
+            }
+          ]
+        }
+      ],
+      "title": "總部各樓層本月用電比例",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": "0.03"
+      },
+      "datasource": "Qpower",
+      "fontSize": "120%",
+      "format": "kwatth",
+      "gridPos": {
+        "h": 11,
+        "w": 5,
+        "x": 9,
+        "y": 5
+      },
+      "id": 13,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "values": false
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "strokeWidth": "5",
+      "targets": [
+        {
+          "alias": "2樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(total_fee_after_tax) from EST_FEE where \"floor\" =~ /^2/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "2F"
+            }
+          ]
+        },
+        {
+          "alias": "3樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(total_fee_after_tax) from EST_FEE where \"floor\" =~ /^3/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "3F"
+            }
+          ]
+        },
+        {
+          "alias": "4樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(total_fee_after_tax) from EST_FEE where \"floor\" =~ /^4/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "4F"
+            }
+          ]
+        },
+        {
+          "alias": "5樓",
+          "groupBy": [],
+          "measurement": "FLOOR_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "select sum(*) from (select last(total_fee_after_tax) from EST_FEE where \"floor\" =~ /^5/ AND $timeFilter group by \"floor\")",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name",
+              "operator": "=",
+              "value": "5F"
+            }
+          ]
+        }
+      ],
+      "title": "總部各樓層本月電費比例",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "columns": [],
+      "datasource": "Qpower",
+      "fontSize": "130%",
+      "gridPos": {
+        "h": 22,
+        "w": 10,
+        "x": 14,
+        "y": 5
+      },
+      "id": 19,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "戶名",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "floor",
+          "preserveFormat": false,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "超約狀態",
+          "colorMode": null,
+          "colors": [
+            "#AAAAAA",
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "last",
+          "thresholds": [
+            "-0.5",
+            "0.5"
+          ],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "未超約",
+              "value": "0"
+            },
+            {
+              "text": "已超約",
+              "value": "1"
+            },
+            {
+              "text": "無合約",
+              "value": "-1"
+            }
+          ]
+        },
+        {
+          "alias": "超約比例",
+          "colorMode": "row",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "last_1",
+          "thresholds": [
+            "0.01",
+            "0.1"
+          ],
+          "type": "number",
+          "unit": "percentunit"
+        },
+        {
+          "alias": "契約容量 (簽訂)",
+          "colorMode": null,
+          "colors": [
+            "#AAAAAA",
+            "rgba(237, 129, 40, 0)",
+            "rgba(50, 172, 45, 0)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "last_2",
+          "thresholds": [
+            "0.01",
+            "0.01"
+          ],
+          "type": "number",
+          "unit": "kwatt"
+        },
+        {
+          "alias": "最高峰電功率",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "last_3",
+          "thresholds": [],
+          "type": "number",
+          "unit": "kwatt"
+        },
+        {
+          "alias": "超約附加費用",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "last_4",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Time",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "floor"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "EST_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"CC_status\"), last(\"CC_exceed_ratio\"), last(\"CC\"), last(\"P_max\"), last(\"exceed_fee\") FROM \"EST_FEE\" WHERE (\"CC_status\" != -1) AND $timeFilter GROUP BY \"floor\"",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "name"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "CC_status"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "CC_exceed_ratio"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "CC"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "P_max"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "exceed_fee"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "CC_status",
+              "operator": "!=",
+              "value": "-1"
+            }
+          ]
+        }
+      ],
+      "title": "QNAP 總部本月超約狀態",
+      "transform": "table",
+      "type": "table"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": "0.03"
+      },
+      "datasource": "Qpower",
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 11,
+        "w": 5,
+        "x": 4,
+        "y": 16
+      },
+      "id": 17,
+      "interval": null,
+      "legend": {
+        "header": "",
+        "percentage": true,
+        "percentageDecimals": 2,
+        "show": true,
+        "values": false
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "strokeWidth": "5",
+      "targets": [
+        {
+          "alias": "[[tag_floor]]",
+          "groupBy": [
+            {
+              "params": [
+                "floor"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "EST_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"EP_Diff\") FROM \"EST_FEE\" WHERE $timeFilter GROUP BY \"floor\"",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "EP_Diff"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "總部各戶本月用電比例",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": "0.03"
+      },
+      "datasource": "Qpower",
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 11,
+        "w": 5,
+        "x": 9,
+        "y": 16
+      },
+      "id": 18,
+      "interval": null,
+      "legend": {
+        "header": "",
+        "percentage": true,
+        "percentageDecimals": 2,
+        "show": true,
+        "values": false
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "strokeWidth": "5",
+      "targets": [
+        {
+          "alias": "[[tag_floor]]",
+          "groupBy": [
+            {
+              "params": [
+                "floor"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "EST_FEE",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"total_fee_after_tax\") FROM \"EST_FEE\" WHERE $timeFilter GROUP BY \"floor\"",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "total_fee_after_tax"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "總部各戶本月電費比例",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/M",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "QNAP 總部用電狀態",
+  "uid": "0qAbPnBik",
+  "version": 12
+}
