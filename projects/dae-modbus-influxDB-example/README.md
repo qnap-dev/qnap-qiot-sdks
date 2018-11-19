@@ -92,18 +92,23 @@ https://drive.google.com/file/d/1BKcANHEYlXlyXmUl5Yrpdiw95AB3NsrI/view
 ## 匯入QIoT application
 
 於QIoT中，匯入範例 app
-dae-modbus-influxDB-example/Qpower_AU.json
-or 
-https://drive.google.com/open?id=1QTZY4G5J50ALSOCqkhU9YhxtBWIbKTyp
+[Qpower_AU.json](https://github.com/qnap-dev/qnap-qiot-sdks/blob/master/projects/dae-modbus-influxDB-example/Qpower_AU.json)
+ 
+
 
 
 ## 於Grafana 匯入Dashboard
 
 Step 1: 按下 + 的按鈕，如同標示1
+
 Step 2: 按下 Import，如同標示2處 
+
 ![](https://i.imgur.com/QSNjDdy.png)
+
 請將以下檔案下載回來
+
 https://drive.google.com/open?id=1roMi-2zLFj9lit8qC43dZaHC1r1PH4OH
+
 Step 1: 將上述檔案使用編輯器打開後，複製並貼上於標示1處或是直接按下Upload.json file(標示2處)
 
 Step 2: 按下Load button，如同標示3
