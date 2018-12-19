@@ -44,5 +44,5 @@ while 1:
     capture()
     with open("Image.jpg", "rb") as image_file: 
         encoded_string = base64.b64encode(image_file.read())
-    connection.publish_by_id("image", '"'+encoded_string+'"')
+    connection.publish_by_id("image", '{"image":' + '"'+encoded_string+'"' + '}')
     time.sleep(5)

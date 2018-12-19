@@ -8,7 +8,7 @@ Setup video capture and mqtt client on Raspberry Pi
     - ``sudo apt update && sudo apt install fswebcam ``
 
 ## Run the program
-1. Put resourceinfo.json under the "/res" folder
+1. Download **"resourceinfo.json"** from QIoT Suite Lite **cameraPi** thing and put **resourceinfo.json** under the "/res" folder
 2. Run command : ``python main.py``
 
 
