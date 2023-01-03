@@ -1,12 +1,12 @@
 {
-    "username": "dbb7f48d-84ea-484c-b0b1-3696e25e773d",
+    "username": "<MQTT_CONNECTION_USERNAME>",
     "myqnapcloudHost": "Not Available",
-    "clientId": "cameraPi_1520857715",
+    "clientId": "cameraPi_15xxxxxx15",
     "host": [
-        "172.17.28.52"
+        "<YOUR_NAS_IP>"
     ],
-    "password": "r:7d8edb35c25c1dbe376ae5c1031ed2bb",
-    "port": 21883,
+    "password": "<MQTT_CONNECTION_PASSWORD>",
+    "port": "<MQTT_PORT>",
     "resources": [
         {
             "description": "",
